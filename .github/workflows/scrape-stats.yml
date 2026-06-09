@@ -1,0 +1,38 @@
+name: Scrape CricClubs Stats
+
+on:
+  schedule:
+    # Runs every Monday at 8:00 AM UTC (3:00 AM CST) to fetch stats from weekend matches
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+    # Allows manual triggering from the GitHub Actions tab
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run Scraping Script
+      run: npm run sync
+      env:
+        GITHUB_ACTIONS: true
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add src/assets/wolves_roster.json
+        # Only commit if there are changes to the roster stats
+        git diff-index --quiet HEAD || (git commit -m "chore: auto-update cricclubs player statistics" && git push)
