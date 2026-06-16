@@ -1416,6 +1416,7 @@ function App() {
               year: '2018', 
               title: 'T20 DIV B CHAMPIONS', 
               text: 'Wolves lifted the T20 Division B Championship after a stellar victory against the Kansas Kings, led by captain and match-winner Abhilash Tatineni. The team also secured 2nd place in the MWCL T20 Division B.', 
+              photo: '/mwcl_2018_champions.jpg',
               x: 65, 
               y: 35, 
               num: 5 
@@ -1424,6 +1425,7 @@ function App() {
               year: '2017', 
               title: 'CPLKC SPRING CHAMPIONS', 
               text: 'Wolves captured the CPLKC Spring League Championship after defeating the Blazing Falcons in a thrilling final under the captaincy of Vinay Jaideep (Jamaal). Abhilash Tatineni was named Man of the Match for his outstanding performance. The club also finished as runners-up in the Srinivas T20 Championship (Division A).', 
+              photo: '/cplkc_2017_champions.jpg',
               x: 43, 
               y: 43, 
               num: 4 
