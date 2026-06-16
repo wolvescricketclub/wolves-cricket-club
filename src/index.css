@@ -3770,3 +3770,14 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-orange);
 }
 
+.tab-view-section {
+  scroll-margin-top: 130px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-view-section:last-of-type {
+  border-bottom: none;
+}
+

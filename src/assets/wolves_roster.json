@@ -1916,5 +1916,325 @@
         "5w": "0"
       }
     }
+  },
+  {
+    "playerId": "4501646",
+    "name": "Ashok M",
+    "role": "All Rounder",
+    "profileUrl": "https://cricclubs.com/cplkc/viewPlayer.do?playerId=4501646&clubId=85",
+    "matchesPlayed": 10,
+    "runs": 2,
+    "wickets": 2,
+    "battingStyle": "Right Handed Batter",
+    "bowlingStyle": "Right Arm Medium",
+    "jerseyNumber": "",
+    "photoUrl": "https://static.cricclubs.com/utilsv2/app/assets/images/Stores.png",
+    "battingStats": {
+      "T20": {
+        "Mat": "6",
+        "Inns": "4",
+        "NO": "0",
+        "Runs": "2",
+        "Balls": "5",
+        "Ave": "0.50",
+        "SR": "40.00",
+        "HS": "1",
+        "100s": "0",
+        "50s": "0",
+        "4s": "0",
+        "6s": "0"
+      },
+      "T10": {
+        "Mat": "4",
+        "Inns": "0",
+        "NO": "0",
+        "Runs": "0",
+        "Balls": "0",
+        "Ave": "0.00",
+        "SR": "0.00",
+        "HS": "0",
+        "100s": "0",
+        "50s": "0",
+        "4s": "0",
+        "6s": "0"
+      },
+      "Practice": {
+        "Mat": "0",
+        "Inns": "0",
+        "NO": "0",
+        "Runs": "0",
+        "Balls": "0",
+        "Ave": "0.00",
+        "SR": "0.00",
+        "HS": "0",
+        "100s": "0",
+        "50s": "0",
+        "4s": "0",
+        "6s": "0"
+      }
+    },
+    "bowlingStats": {
+      "T10": {
+        "Mat": "4",
+        "Inns": "1",
+        "Overs": "2.0",
+        "Runs": "24",
+        "Wkts": "2",
+        "BBF": "24/2",
+        "Mdns": "0",
+        "Ave": "12.00",
+        "Econ": "12.00",
+        "SR": "6.00",
+        "4w": "0",
+        "5w": "0"
+      },
+      "T20": {
+        "Mat": "6",
+        "Inns": "3",
+        "Overs": "3.0",
+        "Runs": "33",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "11.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      },
+      "Practice": {
+        "Mat": "0",
+        "Inns": "0",
+        "Overs": "0.0",
+        "Runs": "0",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "0.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      }
+    }
+  },
+  {
+    "playerId": "3575314",
+    "name": "Jaswanth Ch",
+    "role": "All Rounder",
+    "profileUrl": "https://cricclubs.com/cplkc/viewPlayer.do?playerId=3575314&clubId=85",
+    "matchesPlayed": 22,
+    "runs": 280,
+    "wickets": 0,
+    "battingStyle": "Right Handed Batter",
+    "bowlingStyle": "Right Arm Medium",
+    "jerseyNumber": "",
+    "photoUrl": "https://static.cricclubs.com/utilsv2/app/assets/images/Stores.png",
+    "battingStats": {
+      "T20": {
+        "Mat": "13",
+        "Inns": "12",
+        "NO": "1",
+        "Runs": "212",
+        "Balls": "217",
+        "Ave": "19.27",
+        "SR": "97.70",
+        "HS": "48",
+        "100s": "0",
+        "50s": "0",
+        "4s": "22",
+        "6s": "2"
+      },
+      "T10": {
+        "Mat": "9",
+        "Inns": "8",
+        "NO": "0",
+        "Runs": "68",
+        "Balls": "65",
+        "Ave": "8.50",
+        "SR": "104.62",
+        "HS": "26",
+        "100s": "0",
+        "50s": "0",
+        "4s": "5",
+        "6s": "1"
+      },
+      "Practice": {
+        "Mat": "0",
+        "Inns": "0",
+        "NO": "0",
+        "Runs": "0",
+        "Balls": "0",
+        "Ave": "0.00",
+        "SR": "0.00",
+        "HS": "0",
+        "100s": "0",
+        "50s": "0",
+        "4s": "0",
+        "6s": "0"
+      }
+    },
+    "bowlingStats": {
+      "T20": {
+        "Mat": "13",
+        "Inns": "1",
+        "Overs": "3.0",
+        "Runs": "24",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "8.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      },
+      "T10": {
+        "Mat": "9",
+        "Inns": "3",
+        "Overs": "4.0",
+        "Runs": "48",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "12.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      },
+      "Practice": {
+        "Mat": "0",
+        "Inns": "0",
+        "Overs": "0.0",
+        "Runs": "0",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "0.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      }
+    }
+  },
+  {
+    "playerId": "6124119",
+    "name": "Mourya Chiluka",
+    "role": "All Rounder",
+    "profileUrl": "https://cricclubs.com/cplkc/viewPlayer.do?playerId=6124119&clubId=85",
+    "matchesPlayed": 1,
+    "runs": 8,
+    "wickets": 0,
+    "battingStyle": "Right Handed Batter",
+    "bowlingStyle": "Right Arm Medium",
+    "jerseyNumber": "",
+    "photoUrl": "https://static.cricclubs.com/utilsv2/app/assets/images/Stores.png",
+    "battingStats": {
+      "T10": {
+        "Mat": "1",
+        "Inns": "1",
+        "NO": "1",
+        "Runs": "8",
+        "Balls": "17",
+        "Ave": "8.00",
+        "SR": "47.06",
+        "HS": "8",
+        "100s": "0",
+        "50s": "0",
+        "4s": "1",
+        "6s": "0"
+      },
+      "Practice": {
+        "Mat": "0",
+        "Inns": "0",
+        "NO": "0",
+        "Runs": "0",
+        "Balls": "0",
+        "Ave": "0.00",
+        "SR": "0.00",
+        "HS": "0",
+        "100s": "0",
+        "50s": "0",
+        "4s": "0",
+        "6s": "0"
+      }
+    },
+    "bowlingStats": {
+      "T10": {
+        "Mat": "1",
+        "Inns": "0",
+        "Overs": "0.0",
+        "Runs": "0",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "0.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      },
+      "Practice": {
+        "Mat": "0",
+        "Inns": "0",
+        "Overs": "0.0",
+        "Runs": "0",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "0.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      }
+    }
+  },
+  {
+    "playerId": "4238824",
+    "name": "Pavan Reddy Kasu",
+    "role": "Squad Member",
+    "profileUrl": "https://cricclubs.com/cplkc/viewPlayer.do?playerId=4238824&clubId=85",
+    "matchesPlayed": 0,
+    "runs": 0,
+    "wickets": 0,
+    "battingStyle": "Right Handed Batter",
+    "bowlingStyle": "Right Arm Medium",
+    "jerseyNumber": "88",
+    "photoUrl": "https://static.cricclubs.com/utilsv2/app/assets/images/pbcc-logo.png",
+    "battingStats": {
+      "T20": {
+        "Mat": "0",
+        "Inns": "0",
+        "NO": "0",
+        "Runs": "0",
+        "Balls": "0",
+        "Ave": "0.00",
+        "SR": "0.00",
+        "HS": "0",
+        "100s": "0",
+        "50s": "0",
+        "4s": "0",
+        "6s": "0"
+      }
+    },
+    "bowlingStats": {
+      "T20": {
+        "Mat": "0",
+        "Inns": "0",
+        "Overs": "0.0",
+        "Runs": "0",
+        "Wkts": "0",
+        "BBF": "0/0",
+        "Mdns": "0",
+        "Ave": "0.00",
+        "Econ": "0.00",
+        "SR": "0.00",
+        "4w": "0",
+        "5w": "0"
+      }
+    }
   }
 ]

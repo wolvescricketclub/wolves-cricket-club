@@ -392,8 +392,25 @@ async function run() {
         }
     }
 
-    // Save consolidated roster to assets and scratch backup
+    // Merge back any existing players in the file that weren't scraped in this run
     const outputPath = path.join(__dirname, '..', 'src', 'assets', 'wolves_roster.json');
+    let existingRoster = [];
+    if (fs.existsSync(outputPath)) {
+        try {
+            existingRoster = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+        } catch (e) {
+            console.log("Could not parse existing roster for merging:", e.message);
+        }
+    }
+    const finalIds = new Set(finalRoster.map(p => String(p.playerId)));
+    for (const p of existingRoster) {
+        if (!finalIds.has(String(p.playerId))) {
+            finalRoster.push(p);
+            console.log(`ℹ️ Preserved existing unscraped player: ${p.name} (${p.playerId})`);
+        }
+    }
+
+    // Save consolidated roster to assets and scratch backup
     const dir = path.dirname(outputPath);
     if (!fs.existsSync(dir)){
         fs.mkdirSync(dir, { recursive: true });

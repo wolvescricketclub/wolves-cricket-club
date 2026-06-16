@@ -657,6 +657,54 @@ function App() {
   const [activeStandingsLeague, setActiveStandingsLeague] = useState('MWCL');
   const [gallerySubTab, setGallerySubTab] = useState('photos');
 
+  const handleNavLinkClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(`${tabId}-tab-view`);
+    if (element) {
+      const headerOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        'about',
+        'profiles',
+        'battles',
+        'records',
+        'roadmap',
+        'captains',
+        'database',
+        'gallery',
+        'contact'
+      ];
+      
+      const scrollPosition = window.scrollY + 150;
+      
+      for (const sectionId of sections) {
+        const el = document.getElementById(`${sectionId}-tab-view`);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveTab(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("wolvescricketclubks@gmail.com");
     setCopiedEmail(true);
@@ -828,7 +876,7 @@ function App() {
       {/* 2. MAIN HEADER (USA Cricket style) */}
       <header className="brand-header-navy">
         <div className="brand-header-navy-inner">
-          <div className="brand-header-logo-section" onClick={() => setActiveTab('about')} style={{ cursor: 'pointer' }}>
+          <div className="brand-header-logo-section" onClick={() => handleNavLinkClick('about')} style={{ cursor: 'pointer' }}>
             <img 
               src={logoImg} 
               alt="Wolves Logo" 
@@ -840,55 +888,55 @@ function App() {
           {/* Main Navigation Links */}
           <nav className="brand-navigation-links">
             <button 
-              onClick={() => setActiveTab('about')} 
+              onClick={() => handleNavLinkClick('about')} 
               className={`nav-menu-link ${activeTab === 'about' ? 'active' : ''}`}
             >
               ABOUT
             </button>
             <button 
-              onClick={() => setActiveTab('profiles')} 
+              onClick={() => handleNavLinkClick('profiles')} 
               className={`nav-menu-link ${activeTab === 'profiles' ? 'active' : ''}`}
             >
               PROFILES
             </button>
             <button 
-              onClick={() => setActiveTab('battles')} 
+              onClick={() => handleNavLinkClick('battles')} 
               className={`nav-menu-link ${activeTab === 'battles' ? 'active' : ''}`}
             >
               FIXTURES & STANDINGS
             </button>
             <button 
-              onClick={() => setActiveTab('records')} 
+              onClick={() => handleNavLinkClick('records')} 
               className={`nav-menu-link ${activeTab === 'records' ? 'active' : ''}`}
             >
               RECORDS
             </button>
             <button 
-              onClick={() => setActiveTab('roadmap')} 
+              onClick={() => handleNavLinkClick('roadmap')} 
               className={`nav-menu-link ${activeTab === 'roadmap' ? 'active' : ''}`}
             >
               ROADMAP
             </button>
             <button 
-              onClick={() => setActiveTab('captains')} 
+              onClick={() => handleNavLinkClick('captains')} 
               className={`nav-menu-link ${activeTab === 'captains' ? 'active' : ''}`}
             >
               CAPTAINS
             </button>
             <button 
-              onClick={() => setActiveTab('database')} 
+              onClick={() => handleNavLinkClick('database')} 
               className={`nav-menu-link ${activeTab === 'database' ? 'active' : ''}`}
             >
               DATABASE
             </button>
             <button 
-              onClick={() => setActiveTab('gallery')} 
+              onClick={() => handleNavLinkClick('gallery')} 
               className={`nav-menu-link ${['gallery', 'photos', 'videos'].includes(activeTab) ? 'active' : ''}`}
             >
               GALLERY
             </button>
             <button 
-              onClick={() => setActiveTab('contact')} 
+              onClick={() => handleNavLinkClick('contact')} 
               className={`nav-menu-link ${activeTab === 'contact' ? 'active' : ''}`}
             >
               CONTACT
@@ -925,10 +973,45 @@ function App() {
 
       {/* 6. REDESIGNED ACTIVE SECTION VIEWS */}
       <main className="main-content-section-container">
-        
-        {/* TABS SWITCH LAYOUT */}
-        {activeTab === 'profiles' && (
-          <section id="profiles-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+        <section id="about-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+            <div className="about-content-card-below glass-card" style={{ marginTop: 0 }}>
+              <div className="about-two-columns-layout">
+                
+                {/* Story block */}
+                <div className="about-text-column">
+                  <div className="about-title-block">
+                    <Shield size={24} style={{ color: 'var(--accent-orange)' }} />
+                    <h3 style={{ fontSize: '1.75rem', margin: 0, fontFamily: 'var(--font-heading)', letterSpacing: '0.02em' }}>THE WOLVES LEGACY</h3>
+                  </div>
+                  <p className="about-story-text">
+                    Established in <strong>2013</strong> by founders <strong>Abhiram Varchas</strong> and <strong>Vinay Jaideep Reddy</strong>, <strong>Wolves Cricket Club</strong> has grown into a prominent force in Kansas cricket, built on sportsmanship, unity, and a shared passion for the game.
+                  </p>
+                  <p className="about-story-text" style={{ marginTop: '14px' }}>
+                    We are where we are today thanks to every single player who has represented the Wolves over the years. The sweat, dedication, and contributions of all our current and legacy pack members have paved the way for our success and shaped our proud history.
+                  </p>
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
+                    <span className="badge badge-orange">Abhiram Varchas (Cap #01)</span>
+                    <span className="badge badge-blue">Vinay Jaideep Reddy (Cap #02)</span>
+                  </div>
+                </div>
+
+                {/* Artistic pack visual block */}
+                <div className="about-visual-column">
+                  <img 
+                    src="/abhiram_jaideep.jpg" 
+                    alt="Abhiram and Jaideep standing together" 
+                    className="wolves-pack-painting-img"
+                  />
+                  <div className="wolves-pack-motto-glow">
+                    "FOUNDERS & LEADERS"
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+        <section id="profiles-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
             <div className="section-title-wrap">
               <h2 className="tab-section-heading">WOLVES CC SQUAD</h2>
               <p className="tab-section-subtitle">Official player index. Click on any profile to reveal career breakdowns and match summaries.</p>
@@ -986,10 +1069,8 @@ function App() {
               ))}
             </div>
           </section>
-        )}
 
-        {activeTab === 'battles' && (
-          <section id="battles-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+        <section id="battles-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
             <div className="battles-split-container">
               
               {/* Left Column: Matches */}
@@ -1133,390 +1214,8 @@ function App() {
 
             </div>
           </section>
-        )}
 
-        {activeTab === 'about' && (
-          <section id="about-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-            <div className="about-content-card-below glass-card" style={{ marginTop: 0 }}>
-              <div className="about-two-columns-layout">
-                
-                {/* Story block */}
-                <div className="about-text-column">
-                  <div className="about-title-block">
-                    <Shield size={24} style={{ color: 'var(--accent-orange)' }} />
-                    <h3 style={{ fontSize: '1.75rem', margin: 0, fontFamily: 'var(--font-heading)', letterSpacing: '0.02em' }}>THE WOLVES LEGACY</h3>
-                  </div>
-                  <p className="about-story-text">
-                    Established in <strong>2013</strong> by founders <strong>Abhiram Varchas</strong> and <strong>Vinay Jaideep Reddy</strong>, <strong>Wolves Cricket Club</strong> has grown into a prominent force in Kansas cricket, built on sportsmanship, unity, and a shared passion for the game.
-                  </p>
-                  <p className="about-story-text" style={{ marginTop: '14px' }}>
-                    We are where we are today thanks to every single player who has represented the Wolves over the years. The sweat, dedication, and contributions of all our current and legacy pack members have paved the way for our success and shaped our proud history.
-                  </p>
-                  <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
-                    <span className="badge badge-orange">Abhiram Varchas (Cap #01)</span>
-                    <span className="badge badge-blue">Vinay Jaideep Reddy (Cap #02)</span>
-                  </div>
-                </div>
-
-                {/* Artistic pack visual block */}
-                <div className="about-visual-column">
-                  <img 
-                    src="/abhiram_jaideep.jpg" 
-                    alt="Abhiram and Jaideep standing together" 
-                    className="wolves-pack-painting-img"
-                  />
-                  <div className="wolves-pack-motto-glow">
-                    "FOUNDERS & LEADERS"
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </section>
-        )}
-
-        {activeTab === 'captains' && (
-          <section id="captains-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-            <div className="section-title-wrap">
-              <h2 className="tab-section-heading">WOLF CAPTAINS</h2>
-              <p className="tab-section-subtitle">Official leadership registry and captain profiles.</p>
-            </div>
-            
-            <div className="captains-honor-grid" style={{ marginTop: '30px' }}>
-              {CAPTAINS_DATA.map((cap) => {
-                const rosterPlayer = cap.playerId ? players.find(p => String(p.playerId) === String(cap.playerId)) : null;
-                const initials = cap.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
-                
-                return (
-                  <div 
-                    key={cap.name} 
-                    className="captain-honor-card" 
-                    onClick={() => rosterPlayer && handleOpenPlayerModal(rosterPlayer)}
-                    style={{ cursor: rosterPlayer ? 'pointer' : 'default' }}
-                  >
-                    <div className="captain-honor-info">
-                      <h3 className="captain-honor-name">{cap.name}</h3>
-                      <div className="captain-honor-badges">
-                        {cap.terms.map((term, i) => (
-                          <span key={i} className="badge badge-orange" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
-                            {term.league} Captain ({term.years})
-                          </span>
-                        ))}
-                      </div>
-                      <ul className="captain-achievement-list">
-                        {cap.achievements && cap.achievements.map((ach, idx) => (
-                          <li key={idx} className="captain-achievement-item">
-                            <Trophy size={12} className="captain-achievement-icon" />
-                            <span>{ach}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="captain-honor-photo-frame">
-                      {cap.hasPhoto ? (
-                        <img 
-                          src={cap.photoUrl} 
-                          alt={cap.name} 
-                          className="captain-honor-photo"
-                        />
-                      ) : (
-                        <div className="captain-honor-placeholder">
-                          <span className="captain-honor-placeholder-initials">{initials}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
-
-        {activeTab === 'gallery' && (
-          <section id="gallery-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-            <div className="section-title-wrap">
-              <h2 className="tab-section-heading">WOLVES GALLERY</h2>
-              <p className="tab-section-subtitle">Highlights in action frames, team archives, and match video clips.</p>
-            </div>
-
-            {/* Gallery Segmented Control Toggle */}
-            <div className="gallery-toggle-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
-              <div className="segmented-control" style={{ display: 'inline-flex', background: 'rgba(15, 23, 42, 0.4)', padding: '4px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                <button 
-                  onClick={() => setGallerySubTab('photos')} 
-                  className={`segmented-btn ${gallerySubTab === 'photos' ? 'active' : ''}`}
-                  style={{
-                    padding: '8px 24px',
-                    borderRadius: '8px',
-                    border: 'none',
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.88rem',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    background: gallerySubTab === 'photos' ? 'var(--accent-orange)' : 'transparent',
-                    color: '#ffffff',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  PHOTOS
-                </button>
-                <button 
-                  onClick={() => setGallerySubTab('videos')} 
-                  className={`segmented-btn ${gallerySubTab === 'videos' ? 'active' : ''}`}
-                  style={{
-                    padding: '8px 24px',
-                    borderRadius: '8px',
-                    border: 'none',
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.88rem',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    background: gallerySubTab === 'videos' ? 'var(--accent-orange)' : 'transparent',
-                    color: '#ffffff',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  VIDEOS
-                </button>
-              </div>
-            </div>
-
-            {gallerySubTab === 'photos' ? (
-              photosList.length === 0 ? (
-                <div className="no-matches-card glass-card" style={{ padding: '60px 40px', maxWidth: '600px', margin: '40px auto 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                  <Image size={36} style={{ color: 'var(--accent-orange)', marginBottom: '16px' }} />
-                  <h3 style={{ fontFamily: 'var(--font-heading)', margin: '0 0 8px 0', fontSize: '1.25rem', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>GALLERY UNDER COMPILATION</h3>
-                  <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: '1.6' }}>
-                    Our media team is compiling action-packed match shots, team highlights, and player portraits. Premium gallery photos will be uploaded soon!
-                  </p>
-                </div>
-              ) : (
-                <div className="photos-gallery-grid">
-                  {photosList.map((photo, index) => (
-                    <div key={index} className="gallery-photo-card">
-                      <img src={photo.src} alt={photo.caption} className="gallery-photo-img" />
-                      <div className="gallery-photo-overlay">
-                        <span className="gallery-photo-caption">{photo.caption}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )
-            ) : (
-              <div className="videos-gallery-grid">
-                {videosList.map((video, index) => (
-                  <div key={index} className="gallery-video-card">
-                    <div className="video-card-thumbnail">
-                      <div className="video-thumbnail-placeholder">
-                        <div className="video-play-btn-circle">▶</div>
-                        <span className="video-duration-tag">{video.duration}</span>
-                      </div>
-                    </div>
-                    <div className="video-card-info">
-                      <span className="video-category">{video.category}</span>
-                      <h4 className="video-title">{video.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-        )}
-
-        {activeTab === 'contact' && (
-          <section id="contact-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-            <div className="glass-card contact-card-centered">
-              <Mail size={40} style={{ color: 'var(--accent-orange)', marginBottom: '16px' }} />
-              <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', marginBottom: '12px' }}>GET IN TOUCH</h3>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: '1.6', maxWidth: '400px' }}>
-                Have questions or interested in partnering with the Wolves Cricket Club? Shoot us an email and our team will get back to you!
-              </p>
-              
-              <div 
-                className="email-contact-box" 
-                onClick={handleCopyEmail}
-                title="Click to copy email address"
-              >
-                <span className="contact-email-text">wolvescricketclubks@gmail.com</span>
-                <button className="email-copy-btn">
-                  {copiedEmail ? "Copied!" : "Copy"}
-                </button>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {activeTab === 'roadmap' && (() => {
-          const mapMilestones = [
-            { 
-              year: '2026', 
-              title: 'WOLVES REFORMED', 
-              text: 'Wolves officially reformed as Wolves Cricket Club, introducing a refreshed and premium club structure and launching our official new motto: "HUNT IS ON".', 
-              x: 58, 
-              y: 4, 
-              num: 10 
-            },
-            { 
-              year: '2025', 
-              title: 'MWCL T20 CHAMPIONS', 
-              text: 'Champions! Wolves captured the MWCL T20 Division B Championship with a spectacular win over the Pirates, under the leadership of captain Abhiram Varchas. Avishkar Sreerama was named Man of the Match.', 
-              photo: '/mwcl_2025_champions.jpg',
-              x: 50, 
-              y: 9, 
-              num: 9 
-            },
-            { 
-              year: '2022', 
-              title: 'SUMMER DIV B CHAMPIONS', 
-              text: 'Champions! Wolves clinched the Summer League Division B Championship in a thrilling final against Pehlwan XI, led by captain Vinay Jaideep (Jamaal). The team also finished as runners-up in the T10 League Division B.', 
-              photo: '/summer_2022_champions.jpg',
-              x: 43, 
-              y: 16, 
-              num: 8 
-            },
-            { 
-              year: '2020', 
-              title: 'MWCL T20 BLAST RUNNERS-UP', 
-              text: 'Finished as runners-up in the highly competitive MWCL T20 Blast after a hard-fought final against the Mystics, led by captain Swarup Daggupati.', 
-              x: 35, 
-              y: 22, 
-              num: 7 
-            },
-            { 
-              year: '2019', 
-              title: 'DIV C PODIUMS', 
-              text: 'Achieved consistent podium finishes, securing 2nd place in the Spring League Division C and a 3rd place podium in the Summer League Division C.', 
-              x: 50, 
-              y: 28, 
-              num: 6 
-            },
-            { 
-              year: '2018', 
-              title: 'T20 DIV B CHAMPIONS', 
-              text: 'Wolves lifted the T20 Division B Championship after a stellar victory against the Kansas Kings, led by captain and match-winner Abhilash Tatineni. The team also secured 2nd place in the MWCL T20 Division B.', 
-              photo: '/mwcl_2018_champions.jpg',
-              x: 65, 
-              y: 35, 
-              num: 5 
-            },
-            { 
-              year: '2017', 
-              title: 'CPLKC SPRING CHAMPIONS', 
-              text: 'Wolves captured the CPLKC Spring League Championship after defeating the Blazing Falcons in a thrilling final under the captaincy of Vinay Jaideep (Jamaal). Abhilash Tatineni was named Man of the Match for his outstanding performance. The club also finished as runners-up in the Srinivas T20 Championship (Division A).', 
-              photo: '/cplkc_2017_champions.jpg',
-              x: 43, 
-              y: 43, 
-              num: 4 
-            },
-            { 
-              year: '2016', 
-              title: 'MWCL T20 SPRING', 
-              text: 'Claimed a dominant 1st place in Group B during the MWCL T20 Spring League, asserting the team\'s strength in the group stages.', 
-              x: 32, 
-              y: 56, 
-              num: 3 
-            },
-            { 
-              year: '2015', 
-              title: 'KC LEAGUE DIV B', 
-              text: 'Finished as runners-up (2nd place) in Division B of the KC Cricket League, marking the pack\'s first major tournament success.', 
-              x: 65, 
-              y: 73, 
-              num: 2 
-            },
-            { 
-              year: '2013', 
-              title: 'WOLVES ESTABLISHED', 
-              text: 'Wolves Cricket Club was established by founders Abhiram Varchas and Vinay Jaideep Reddy, laying the first foundations of the pack.', 
-              x: 50, 
-              y: 86, 
-              num: 1 
-            }
-          ];
-
-          return (
-            <section id="roadmap-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-              <div className="section-title-wrap" style={{ textAlign: 'center' }}>
-                <h2 className="tab-section-heading">WOLVES DEVELOPMENT ROADMAP</h2>
-                <p className="tab-section-subtitle">A simple timeline of our historic milestones and championship achievements along the way.</p>
-              </div>
-
-              <div className="simple-timeline-container">
-                {mapMilestones.map((m) => (
-                  <div key={m.year} className="simple-timeline-item">
-                    <div className="simple-timeline-badge">
-                      <span className="timeline-badge-year">{m.year}</span>
-                    </div>
-                    <div className="simple-timeline-card glass-card">
-                      <h3 className="timeline-card-title">{m.title}</h3>
-                      <p className="timeline-card-text">{m.text}</p>
-                      {m.photo && (
-                        <div className="timeline-card-photo-wrapper">
-                          <img src={m.photo} alt={m.title} className="timeline-card-photo" />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          );
-        })()}
-
-        {activeTab === 'database' && (
-          <section id="database-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-            <div className="section-title-wrap">
-              <h2 className="tab-section-heading">WOLF DATABASE</h2>
-              <p className="tab-section-subtitle">Searchable, historical squad registry. Click on CricClubs links to view full profiles.</p>
-            </div>
-
-            <div className="database-table-container glass-card">
-              <table className="database-table">
-                <thead>
-                  <tr>
-                    <th>Cap #</th>
-                    <th>Player Name</th>
-                    <th>Role</th>
-                    <th style={{ textAlign: 'center' }}>Matches</th>
-                    <th style={{ textAlign: 'center' }}>Runs</th>
-                    <th style={{ textAlign: 'center' }}>Wickets</th>
-                    <th style={{ textAlign: 'center' }}>Profile Page</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {players.map((p) => (
-                    <tr key={p.playerId} className="db-table-row">
-                      <td className="db-cell-cap">#{String(p.capNumber).padStart(2, '0')}</td>
-                      <td className="db-cell-name">{p.name}</td>
-                      <td>
-                        <span className={`db-role-badge ${p.role.toLowerCase().replace(' ', '-')}`}>
-                          {p.role}
-                        </span>
-                      </td>
-                      <td style={{ textAlign: 'center', fontWeight: '600' }}>{p.matchesPlayed}</td>
-                      <td style={{ textAlign: 'center', fontWeight: '600', color: 'var(--accent-orange)' }}>{p.runs}</td>
-                      <td style={{ textAlign: 'center', fontWeight: '600', color: 'var(--accent-blue)' }}>{p.wickets}</td>
-                      <td style={{ textAlign: 'center' }}>
-                        <a 
-                          href={p.profileUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="db-link-btn"
-                        >
-                          CricClubs <ExternalLink size={12} style={{ marginLeft: '4px' }} />
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
-
-        {activeTab === 'records' && (
-          <section id="records-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+        <section id="records-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
             <div className="section-title-wrap">
               <h2 className="tab-section-heading">WOLVES CC CLUB RECORDS</h2>
               <p className="tab-section-subtitle">Top 5 highest individual and career achievements in batting and bowling.</p>
@@ -1662,9 +1361,339 @@ function App() {
               </div>
             </div>
           </section>
-        )}
 
-      </main>
+        {(() => {
+          const mapMilestones = [
+            { 
+              year: '2026', 
+              title: 'WOLVES REFORMED', 
+              text: 'Wolves officially reformed as Wolves Cricket Club, introducing a refreshed and premium club structure and launching our official new motto: "HUNT IS ON".', 
+              x: 58, 
+              y: 4, 
+              num: 10 
+            },
+            { 
+              year: '2025', 
+              title: 'MWCL T20 CHAMPIONS', 
+              text: 'Champions! Wolves captured the MWCL T20 Division B Championship with a spectacular win over the Pirates, under the leadership of captain Abhiram Varchas. Avishkar Sreerama was named Man of the Match.', 
+              photo: '/mwcl_2025_champions.jpg',
+              x: 50, 
+              y: 9, 
+              num: 9 
+            },
+            { 
+              year: '2022', 
+              title: 'SUMMER DIV B CHAMPIONS', 
+              text: 'Champions! Wolves clinched the Summer League Division B Championship in a thrilling final against Pehlwan XI, led by captain Vinay Jaideep (Jamaal). The team also finished as runners-up in the T10 League Division B.', 
+              photo: '/summer_2022_champions.jpg',
+              x: 43, 
+              y: 16, 
+              num: 8 
+            },
+            { 
+              year: '2020', 
+              title: 'MWCL T20 BLAST RUNNERS-UP', 
+              text: 'Finished as runners-up in the highly competitive MWCL T20 Blast after a hard-fought final against the Mystics, led by captain Swarup Daggupati.', 
+              x: 35, 
+              y: 22, 
+              num: 7 
+            },
+            { 
+              year: '2019', 
+              title: 'DIV C PODIUMS', 
+              text: 'Achieved consistent podium finishes, securing 2nd place in the Spring League Division C and a 3rd place podium in the Summer League Division C.', 
+              x: 50, 
+              y: 28, 
+              num: 6 
+            },
+            { 
+              year: '2018', 
+              title: 'T20 DIV B CHAMPIONS', 
+              text: 'Wolves lifted the T20 Division B Championship after a stellar victory against the Kansas Kings, led by captain and match-winner Abhilash Tatineni. The team also secured 2nd place in the MWCL T20 Division B.', 
+              photo: '/mwcl_2018_champions.jpg',
+              x: 65, 
+              y: 35, 
+              num: 5 
+            },
+            { 
+              year: '2017', 
+              title: 'CPLKC SPRING CHAMPIONS', 
+              text: 'Wolves captured the CPLKC Spring League Championship after defeating the Blazing Falcons in a thrilling final under the captaincy of Vinay Jaideep (Jamaal). Abhilash Tatineni was named Man of the Match for his outstanding performance. The club also finished as runners-up in the Srinivas T20 Championship (Division A).', 
+              photo: '/cplkc_2017_champions.jpg',
+              x: 43, 
+              y: 43, 
+              num: 4 
+            },
+            { 
+              year: '2016', 
+              title: 'MWCL T20 SPRING', 
+              text: 'Claimed a dominant 1st place in Group B during the MWCL T20 Spring League, asserting the team\'s strength in the group stages.', 
+              x: 32, 
+              y: 56, 
+              num: 3 
+            },
+            { 
+              year: '2015', 
+              title: 'KC LEAGUE DIV B', 
+              text: 'Finished as runners-up (2nd place) in Division B of the KC Cricket League, marking the pack\'s first major tournament success.', 
+              x: 65, 
+              y: 73, 
+              num: 2 
+            },
+            { 
+              year: '2013', 
+              title: 'WOLVES ESTABLISHED', 
+              text: 'Wolves Cricket Club was established by founders Abhiram Varchas and Vinay Jaideep Reddy, laying the first foundations of the pack.', 
+              x: 50, 
+              y: 86, 
+              num: 1 
+            }
+          ];
+
+          return (
+            <section id="roadmap-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+              <div className="section-title-wrap" style={{ textAlign: 'center' }}>
+                <h2 className="tab-section-heading">WOLVES DEVELOPMENT ROADMAP</h2>
+                <p className="tab-section-subtitle">A simple timeline of our historic milestones and championship achievements along the way.</p>
+              </div>
+
+              <div className="simple-timeline-container">
+                {mapMilestones.map((m) => (
+                  <div key={m.year} className="simple-timeline-item">
+                    <div className="simple-timeline-badge">
+                      <span className="timeline-badge-year">{m.year}</span>
+                    </div>
+                    <div className="simple-timeline-card glass-card">
+                      <h3 className="timeline-card-title">{m.title}</h3>
+                      <p className="timeline-card-text">{m.text}</p>
+                      {m.photo && (
+                        <div className="timeline-card-photo-wrapper">
+                          <img src={m.photo} alt={m.title} className="timeline-card-photo" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })()}
+
+        <section id="captains-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+            <div className="section-title-wrap">
+              <h2 className="tab-section-heading">WOLF CAPTAINS</h2>
+              <p className="tab-section-subtitle">Official leadership registry and captain profiles.</p>
+            </div>
+            
+            <div className="captains-honor-grid" style={{ marginTop: '30px' }}>
+              {CAPTAINS_DATA.map((cap) => {
+                const rosterPlayer = cap.playerId ? players.find(p => String(p.playerId) === String(cap.playerId)) : null;
+                const initials = cap.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+                
+                return (
+                  <div 
+                    key={cap.name} 
+                    className="captain-honor-card" 
+                    onClick={() => rosterPlayer && handleOpenPlayerModal(rosterPlayer)}
+                    style={{ cursor: rosterPlayer ? 'pointer' : 'default' }}
+                  >
+                    <div className="captain-honor-info">
+                      <h3 className="captain-honor-name">{cap.name}</h3>
+                      <div className="captain-honor-badges">
+                        {cap.terms.map((term, i) => (
+                          <span key={i} className="badge badge-orange" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+                            {term.league} Captain ({term.years})
+                          </span>
+                        ))}
+                      </div>
+                      <ul className="captain-achievement-list">
+                        {cap.achievements && cap.achievements.map((ach, idx) => (
+                          <li key={idx} className="captain-achievement-item">
+                            <Trophy size={12} className="captain-achievement-icon" />
+                            <span>{ach}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="captain-honor-photo-frame">
+                      {cap.hasPhoto ? (
+                        <img 
+                          src={cap.photoUrl} 
+                          alt={cap.name} 
+                          className="captain-honor-photo"
+                        />
+                      ) : (
+                        <div className="captain-honor-placeholder">
+                          <span className="captain-honor-placeholder-initials">{initials}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+        <section id="database-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+            <div className="section-title-wrap">
+              <h2 className="tab-section-heading">WOLF DATABASE</h2>
+              <p className="tab-section-subtitle">Searchable, historical squad registry. Click on CricClubs links to view full profiles.</p>
+            </div>
+
+            <div className="database-table-container glass-card">
+              <table className="database-table">
+                <thead>
+                  <tr>
+                    <th>Cap #</th>
+                    <th>Player Name</th>
+                    <th>Role</th>
+                    <th style={{ textAlign: 'center' }}>Matches</th>
+                    <th style={{ textAlign: 'center' }}>Runs</th>
+                    <th style={{ textAlign: 'center' }}>Wickets</th>
+                    <th style={{ textAlign: 'center' }}>Profile Page</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {players.map((p) => (
+                    <tr key={p.playerId} className="db-table-row">
+                      <td className="db-cell-cap">#{String(p.capNumber).padStart(2, '0')}</td>
+                      <td className="db-cell-name">{p.name}</td>
+                      <td>
+                        <span className={`db-role-badge ${p.role.toLowerCase().replace(' ', '-')}`}>
+                          {p.role}
+                        </span>
+                      </td>
+                      <td style={{ textAlign: 'center', fontWeight: '600' }}>{p.matchesPlayed}</td>
+                      <td style={{ textAlign: 'center', fontWeight: '600', color: 'var(--accent-orange)' }}>{p.runs}</td>
+                      <td style={{ textAlign: 'center', fontWeight: '600', color: 'var(--accent-blue)' }}>{p.wickets}</td>
+                      <td style={{ textAlign: 'center' }}>
+                        <a 
+                          href={p.profileUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="db-link-btn"
+                        >
+                          CricClubs <ExternalLink size={12} style={{ marginLeft: '4px' }} />
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        <section id="gallery-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+            <div className="section-title-wrap">
+              <h2 className="tab-section-heading">WOLVES GALLERY</h2>
+              <p className="tab-section-subtitle">Highlights in action frames, team archives, and match video clips.</p>
+            </div>
+
+            {/* Gallery Segmented Control Toggle */}
+            <div className="gallery-toggle-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
+              <div className="segmented-control" style={{ display: 'inline-flex', background: 'rgba(15, 23, 42, 0.4)', padding: '4px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+                <button 
+                  onClick={() => setGallerySubTab('photos')} 
+                  className={`segmented-btn ${gallerySubTab === 'photos' ? 'active' : ''}`}
+                  style={{
+                    padding: '8px 24px',
+                    borderRadius: '8px',
+                    border: 'none',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.88rem',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    background: gallerySubTab === 'photos' ? 'var(--accent-orange)' : 'transparent',
+                    color: '#ffffff',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  PHOTOS
+                </button>
+                <button 
+                  onClick={() => setGallerySubTab('videos')} 
+                  className={`segmented-btn ${gallerySubTab === 'videos' ? 'active' : ''}`}
+                  style={{
+                    padding: '8px 24px',
+                    borderRadius: '8px',
+                    border: 'none',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.88rem',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    background: gallerySubTab === 'videos' ? 'var(--accent-orange)' : 'transparent',
+                    color: '#ffffff',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  VIDEOS
+                </button>
+              </div>
+            </div>
+
+            {gallerySubTab === 'photos' ? (
+              photosList.length === 0 ? (
+                <div className="no-matches-card glass-card" style={{ padding: '60px 40px', maxWidth: '600px', margin: '40px auto 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <Image size={36} style={{ color: 'var(--accent-orange)', marginBottom: '16px' }} />
+                  <h3 style={{ fontFamily: 'var(--font-heading)', margin: '0 0 8px 0', fontSize: '1.25rem', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>GALLERY UNDER COMPILATION</h3>
+                  <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: '1.6' }}>
+                    Our media team is compiling action-packed match shots, team highlights, and player portraits. Premium gallery photos will be uploaded soon!
+                  </p>
+                </div>
+              ) : (
+                <div className="photos-gallery-grid">
+                  {photosList.map((photo, index) => (
+                    <div key={index} className="gallery-photo-card">
+                      <img src={photo.src} alt={photo.caption} className="gallery-photo-img" />
+                      <div className="gallery-photo-overlay">
+                        <span className="gallery-photo-caption">{photo.caption}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )
+            ) : (
+              <div className="videos-gallery-grid">
+                {videosList.map((video, index) => (
+                  <div key={index} className="gallery-video-card">
+                    <div className="video-card-thumbnail">
+                      <div className="video-thumbnail-placeholder">
+                        <div className="video-play-btn-circle">▶</div>
+                        <span className="video-duration-tag">{video.duration}</span>
+                      </div>
+                    </div>
+                    <div className="video-card-info">
+                      <span className="video-category">{video.category}</span>
+                      <h4 className="video-title">{video.title}</h4>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+
+        <section id="contact-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+            <div className="glass-card contact-card-centered">
+              <Mail size={40} style={{ color: 'var(--accent-orange)', marginBottom: '16px' }} />
+              <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-heading)', marginBottom: '12px' }}>GET IN TOUCH</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: '1.6', maxWidth: '400px' }}>
+                Have questions or interested in partnering with the Wolves Cricket Club? Shoot us an email and our team will get back to you!
+              </p>
+              
+              <div 
+                className="email-contact-box" 
+                onClick={handleCopyEmail}
+                title="Click to copy email address"
+              >
+                <span className="contact-email-text">wolvescricketclubks@gmail.com</span>
+                <button className="email-copy-btn">
+                  {copiedEmail ? "Copied!" : "Copy"}
+                </button>
+              </div>
+            </div>
+          </section>
+</main>
 
       {/* 7. MAXIMIZED PLAYER MODAL (Genuinely accurate CricClubs details modal remains fully supported) */}
       {activePlayer && activePlayerStats && (
