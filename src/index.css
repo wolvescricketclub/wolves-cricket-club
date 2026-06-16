@@ -348,8 +348,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .wolves-pack-painting-img {
   width: 100%;
-  max-height: 230px;
+  max-height: 350px;
   object-fit: cover;
+  object-position: top center;
   border-radius: 16px;
   border: 2px solid #FFFFFF;
   box-shadow: 0 10px 25px rgba(255, 107, 0, 0.2), 0 0 15px rgba(0, 85, 255, 0.15);
@@ -756,9 +757,9 @@ h1, h2, h3, h4, h5, h6 {
 .modal-backdrop {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15, 23, 42, 0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(2, 6, 23, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -775,8 +776,8 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 90vh;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25);
   border: 1px solid var(--border-color);
-  overflow-y: auto;
-  padding: 32px;
+  overflow: hidden;
+  padding: 0; /* Let left column touch the edges */
 }
 
 /* Scale & Slide-in entry animation for modal to guarantee display */
@@ -821,21 +822,177 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-two-columns {
   display: grid;
-  grid-template-columns: 38% 58%;
-  gap: 4%;
-}
-
-@media (max-width: 768px) {
-  .modal-two-columns {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+  grid-template-columns: 40% 60%;
+  min-height: 550px;
 }
 
 .modal-column-left {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.modal-column-left.cutout-layout {
+  background: transparent;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.modal-column-left.cutout-layout::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(0, 40, 104, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.modal-column-left .player-cutout-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-column-left:hover .player-cutout-img {
+  transform: scale(1.05);
+}
+
+/* Genuinely Premium 3D Cutout Theme for Player Profiles */
+.modal-content-container.cutout-modal-theme {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  max-width: 1100px;
+  width: 95%;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content-container.cutout-modal-theme .modal-two-columns {
+  grid-template-columns: 45% 55%;
+  align-items: flex-end;
+  min-height: 600px;
+  overflow: visible;
+  flex-grow: 1;
+}
+
+.modal-content-container.cutout-modal-theme .modal-column-left.cutout-layout {
+  background: transparent;
+  border: none;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.modal-content-container.cutout-modal-theme .modal-column-left.cutout-layout::after {
+  display: none; /* Keep the transparent cutout clean and simple */
+}
+
+.modal-content-container.cutout-modal-theme .player-cutout-img {
+  width: auto;
+  height: auto;
+  max-height: 94vh; /* Stands tall to the screen */
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 10;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.65));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom center;
+}
+
+.modal-content-container.cutout-modal-theme .modal-column-left:hover .player-cutout-img {
+  transform: scale(1.04);
+}
+
+.modal-content-container.cutout-modal-theme .modal-column-right {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.6);
+  max-height: 90vh;
+  margin-bottom: 20px;
+}
+
+.modal-column-left.standard-layout {
+  background: rgba(10, 17, 40, 0.03);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  border-right: 1px solid var(--border-color);
+}
+
+.modal-column-right {
+  padding: 32px;
+  overflow-y: auto;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .modal-content-container {
+    overflow-y: auto;
+  }
+  .modal-two-columns {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .modal-column-left.cutout-layout {
+    height: 380px;
+  }
+  .modal-column-left.standard-layout {
+    padding: 24px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .modal-column-right {
+    padding: 24px;
+    max-height: none;
+  }
+
+  /* Responsive overrides for Cutout Theme */
+  .modal-content-container.cutout-modal-theme {
+    max-height: 95vh;
+    overflow-y: auto !important;
+  }
+
+  .modal-content-container.cutout-modal-theme .modal-two-columns {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    min-height: auto;
+  }
+
+  .modal-content-container.cutout-modal-theme .modal-column-left.cutout-layout {
+    height: 340px !important;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: -15px; /* Pull the card slightly up behind the player cutout */
+    z-index: 11;
+  }
+
+  .modal-content-container.cutout-modal-theme .player-cutout-img {
+    max-height: 350px !important;
+    width: auto;
+    height: auto;
+    object-position: bottom center;
+  }
+
+  .modal-content-container.cutout-modal-theme .modal-column-right {
+    margin-bottom: 0 !important;
+    border-radius: 24px 24px 24px 24px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+  }
 }
 
 .max-photo-frame {
@@ -1784,7 +1941,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-navigation-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px; /* Reduced gap from 24px to fit 9 items comfortably */
 }
 
 .nav-menu-link {
@@ -1793,9 +1950,9 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  padding: 8px 12px;
+  font-size: 0.82rem; /* Reduced from 0.9rem to prevent wrapping on medium screens */
+  letter-spacing: 0.03em;
+  padding: 6px 10px; /* Tighter padding */
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -1810,11 +1967,36 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu-link.active::after {
   content: '';
   position: absolute;
-  bottom: -14px;
+  bottom: -16px;
   left: 0;
   width: 100%;
   height: 4px;
   background: var(--accent-orange);
+}
+
+/* Media Query to prevent navigation wrapping issues on tablets/laptops and center on mobile */
+@media (max-width: 1024px) {
+  .brand-header-navy-inner {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 16px 12px;
+  }
+  
+  .brand-navigation-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+  
+  .nav-menu-link {
+    font-size: 0.78rem;
+    padding: 4px 8px;
+  }
+  
+  .nav-menu-link.active::after {
+    bottom: -6px;
+  }
 }
 
 /* Nav dropdown styling */
@@ -2172,6 +2354,230 @@ h1, h2, h3, h4, h5, h6 {
 .battle-card-footer {
   margin-top: auto;
   width: 100%;
+}
+
+/* ==========================================================================
+   WOLVES SPLIT BATTLES & STANDINGS STYLINGS
+   ========================================================================== */
+
+.battles-split-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.battles-column,
+.standings-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.section-title-wrap-left {
+  text-align: left;
+  border-bottom: 2px solid rgba(255, 107, 0, 0.2);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.section-title-wrap-left .tab-section-heading {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.section-title-wrap-left .tab-section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 4px 0 0 0;
+}
+
+.no-matches-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+}
+
+.battles-schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.standings-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.standings-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.standings-tab-btn {
+  flex: 1;
+  background: rgba(0, 40, 104, 0.2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.standings-tab-btn:hover {
+  background: rgba(255, 107, 0, 0.05);
+  color: var(--accent-orange);
+  border-color: rgba(255, 107, 0, 0.3);
+}
+
+.standings-tab-btn.active {
+  background: var(--accent-orange);
+  color: #ffffff;
+  border-color: var(--accent-orange);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+}
+
+.standings-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: rgba(0, 40, 104, 0.1);
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.standings-table th {
+  background: rgba(0, 40, 104, 0.4);
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 10px 8px;
+  border-bottom: 2px solid var(--border-color);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.standings-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+}
+
+.standings-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.standings-table tbody tr.wolves-row-highlight {
+  background: rgba(255, 107, 0, 0.08) !important;
+  border-left: 3px solid var(--accent-orange);
+}
+
+.standings-table tbody tr.wolves-row-highlight td {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.standings-table tbody tr.wolves-row-highlight td.team-cell {
+  color: var(--accent-orange);
+}
+
+.wolves-self-badge {
+  background: var(--accent-orange);
+  color: #ffffff;
+  font-size: 0.58rem;
+  font-weight: 900;
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+.rank-cell {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.points-cell {
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.nrr-cell {
+  font-family: monospace;
+}
+
+.standings-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.standings-external-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.standings-external-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .battles-split-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 580px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  .standings-table td, 
+  .standings-table th {
+    padding: 8px 6px;
+    font-size: 0.75rem;
+  }
 }
 
 /* ==========================================================================
@@ -2886,4 +3292,481 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-orange);
 }
 
+/* ==========================================================================
+   SERPENTINE TIMELINE ROADMAP STYLES
+   ========================================================================== */
+.serpentine-timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 60px auto;
+  height: 3300px;
+}
+
+.timeline-svg-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.timeline-row-item {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.serpentine-node-circle {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.serpentine-node-circle:hover {
+  transform: translate(-50%, -50%) scale(1.18) !important;
+  box-shadow: 0 0 22px rgba(255, 107, 0, 0.95) !important;
+  border-color: var(--accent-orange) !important;
+  background: #ffffff !important;
+  color: var(--accent-orange) !important;
+}
+
+.polaroid-milestone-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.polaroid-milestone-card:hover {
+  transform: translate(0, -50%) scale(1.05) rotate(1.5deg) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35) !important;
+  border-color: var(--accent-orange) !important;
+}
+
+/* Make cards alternate tilt direction slightly for a realistic messy board feel */
+.timeline-row-item:nth-child(even) .polaroid-milestone-card:hover {
+  transform: translate(0, -50%) scale(1.05) rotate(-1.5deg) !important;
+}
+
+.polaroid-photo-placeholder {
+  transition: all 0.3s ease;
+}
+
+.polaroid-milestone-card:hover .polaroid-photo-placeholder {
+  border-color: var(--accent-orange) !important;
+  background: #1e293b !important;
+}
+
+@media (max-width: 768px) {
+  .serpentine-timeline-container {
+    height: auto !important;
+    display: flex;
+    flex-direction: column; /* Keep chronological order or vertical stack */
+    gap: 40px;
+    padding-left: 50px;
+    position: relative;
+    margin: 30px auto;
+  }
+  
+  .serpentine-timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent-orange);
+    box-shadow: 0 0 10px var(--accent-orange);
+    z-index: 1;
+  }
+  
+  .timeline-svg-path {
+    display: none !important;
+  }
+  
+  .timeline-row-item {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    pointer-events: auto !important;
+  }
+  
+  .serpentine-node-circle {
+    position: absolute !important;
+    left: 20px !important;
+    top: 30px !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .polaroid-milestone-card {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .polaroid-milestone-card:hover {
+    transform: scale(1.02) !important;
+  }
+}
+
+/* ==========================================================================
+   ROADMAP SIMPLE TIMELINE STYLES
+   ========================================================================== */
+.simple-timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px 0;
+}
+
+.simple-timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 120px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-orange);
+  opacity: 0.3;
+}
+
+.simple-timeline-item {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.simple-timeline-badge {
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.timeline-badge-year {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* Bullet on the line */
+.simple-timeline-badge::after {
+  content: '';
+  position: absolute;
+  right: -25px; /* Aligns with the 120px line */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 8px var(--accent-orange);
+  z-index: 2;
+}
+
+.simple-timeline-card {
+  flex-grow: 1;
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-orange) !important;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-premium);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-timeline-card:hover {
+  transform: translateX(4px);
+  background: var(--bg-secondary);
+  border-color: rgba(255, 107, 0, 0.3);
+  box-shadow: 0 10px 30px -5px rgba(255, 107, 0, 0.1), var(--shadow-premium);
+}
+
+.timeline-card-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.timeline-card-text {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .simple-timeline-container::before {
+    left: 20px;
+  }
+  .simple-timeline-item {
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 40px;
+  }
+  .simple-timeline-badge {
+    width: auto;
+    justify-content: flex-start;
+  }
+  .simple-timeline-badge::after {
+    left: -24px;
+    right: auto;
+  }
+  .timeline-badge-year {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   CAPTAINS HONOR ROLL REGISTRY STYLES
+   ========================================================================== */
+.captains-honor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.captain-honor-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow-premium);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.captain-honor-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 0, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(255, 107, 0, 0.15), var(--shadow-premium);
+}
+
+.captain-honor-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.captain-honor-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin: 0 0 6px 0;
+  letter-spacing: 0.01em;
+}
+
+.captain-honor-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.captain-achievement-list {
+  margin: 4px 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.captain-achievement-item {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+.captain-achievement-icon {
+  color: var(--accent-orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.captain-honor-photo-frame {
+  width: 90px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  position: relative;
+  background: rgba(10, 17, 40, 0.05);
+}
+
+.captain-honor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.captain-honor-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0A1128 0%, #040814 100%);
+  color: #FFFFFF;
+}
+
+.captain-honor-placeholder-initials {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #FF8800 100%);
+  WebkitBackgroundClip: text;
+  WebkitTextFillColor: transparent;
+}
+
+@media (max-width: 480px) {
+  .captains-honor-grid {
+    grid-template-columns: 1fr;
+  }
+  .captain-honor-card {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .captain-honor-photo-frame {
+    width: 70px;
+    height: 90px;
+  }
+}
+
+.timeline-card-photo-wrapper {
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  max-width: 100%;
+}
+
+.timeline-card-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-card-photo:hover {
+  transform: scale(1.02);
+}
+
+.nav-more-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 2px;
+  transition: transform 0.3s ease;
+}
+
+.nav-more-dropdown-container:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-more-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 8px;
+  box-shadow: var(--shadow-premium);
+  min-width: 170px;
+  z-index: 1000;
+  padding: 8px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-more-dropdown-container:hover .nav-more-dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu-item-disabled {
+  display: block;
+  padding: 8px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: not-allowed;
+  text-transform: uppercase;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.dropdown-menu-item {
+  display: block;
+  padding: 8px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.dropdown-menu-item:hover {
+  background: rgba(255, 107, 0, 0.1);
+  color: var(--accent-orange);
+}
 
