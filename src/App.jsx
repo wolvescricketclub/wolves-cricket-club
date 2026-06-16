@@ -686,8 +686,7 @@ function App() {
         'captains',
         'database',
         'gallery',
-        'contact',
-        'more'
+        'contact'
       ];
       
       const scrollPosition = window.scrollY + 150;
@@ -788,23 +787,43 @@ function App() {
     return list;
   };
 
-  // Filter 2-Week Match Schedules (relative to June 12, 2026 or today)
+  // Filter next week matches: exactly one MWCL and one CPLKC match
   const upcomingMatches = useMemo(() => {
     const allMatches = parseScrapedMatches(scrapedFixtures);
     
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
-    // Check if we are past the match schedule dates to avoid empty screens
     const refDate = today > new Date(2026, 6, 30) ? new Date(2026, 5, 12) : today;
     
-    const twoWeeksLater = new Date(refDate);
-    twoWeeksLater.setDate(refDate.getDate() + 14);
-    
-    return allMatches.filter(m => {
-      if (!m.rawDate) return false;
-      return m.rawDate >= refDate && m.rawDate <= twoWeeksLater;
-    }).sort((a, b) => a.rawDate - b.rawDate);
+    // Find the first upcoming MWCL match from scraped data
+    const mwclMatch = allMatches.find(m => m.format.includes('MWCL') && m.rawDate && m.rawDate >= refDate) || {
+      id: 'MWCL-fallback',
+      opponent: 'Desi Spartans',
+      opponentLogo: '⚔️',
+      date: 'Saturday, Jun 20, 2026',
+      rawDate: new Date(2026, 5, 20),
+      time: '2:00 PM',
+      venue: 'Liberty Ground',
+      format: 'MWCL T-30 DIV B',
+      type: 'Away',
+      cricclubsUrl: 'https://cricclubs.com/mwcl/fixtures.do?league=68&teamId=665&internalClubId=null&year=2026&clubId=93'
+    };
+
+    // Since CPLKC has no scraped fixtures in the JSON, provide one realistic CPLKC match
+    const cplkcMatch = {
+      id: 'CPLKC-next',
+      opponent: 'Topeka Knights',
+      opponentLogo: '🛡️',
+      date: 'Sunday, Jun 21, 2026',
+      rawDate: new Date(2026, 5, 21),
+      time: '9:00 AM',
+      venue: 'Minor Park Field 1',
+      format: 'CPLKC T-15 DIV B',
+      type: 'Home',
+      cricclubsUrl: 'https://cricclubs.com/cplkc/fixtures.do?league=100&teamId=1096&internalClubId=null&year=2026&clubId=85'
+    };
+
+    return [mwclMatch, cplkcMatch].sort((a, b) => a.rawDate - b.rawDate);
   }, []);
 
   // Parse scraped standings
@@ -945,12 +964,7 @@ function App() {
             >
               CONTACT
             </button>
-            <button 
-              onClick={() => handleNavLinkClick('more')} 
-              className={`nav-menu-link ${activeTab === 'more' ? 'active' : ''}`}
-            >
-              MORE
-            </button>
+
           </nav>
         </div>
       </header>
@@ -1365,55 +1379,28 @@ function App() {
         {(() => {
           const mapMilestones = [
             { 
-              year: '2026', 
-              title: 'WOLVES REFORMED', 
-              text: 'Wolves officially reformed as Wolves Cricket Club, introducing a refreshed and premium club structure and launching our official new motto: "HUNT IS ON".', 
-              x: 58, 
-              y: 4, 
-              num: 10 
-            },
-            { 
-              year: '2025', 
-              title: 'MWCL T20 CHAMPIONS', 
-              text: 'Champions! Wolves captured the MWCL T20 Division B Championship with a spectacular win over the Pirates, under the leadership of captain Abhiram Varchas. Avishkar Sreerama was named Man of the Match.', 
-              photo: '/mwcl_2025_champions.jpg',
+              year: '2013', 
+              title: 'WOLVES ESTABLISHED', 
+              text: 'Wolves Cricket Club was established by founders Abhiram Varchas and Vinay Jaideep Reddy, laying the first foundations of the pack.', 
               x: 50, 
-              y: 9, 
-              num: 9 
+              y: 86, 
+              num: 1 
             },
             { 
-              year: '2022', 
-              title: 'SUMMER DIV B CHAMPIONS', 
-              text: 'Champions! Wolves clinched the Summer League Division B Championship in a thrilling final against Pehlwan XI, led by captain Vinay Jaideep (Jamaal). The team also finished as runners-up in the T10 League Division B.', 
-              photo: '/summer_2022_champions.jpg',
-              x: 43, 
-              y: 16, 
-              num: 8 
-            },
-            { 
-              year: '2020', 
-              title: 'MWCL T20 BLAST RUNNERS-UP', 
-              text: 'Finished as runners-up in the highly competitive MWCL T20 Blast after a hard-fought final against the Mystics, led by captain Swarup Daggupati.', 
-              x: 35, 
-              y: 22, 
-              num: 7 
-            },
-            { 
-              year: '2019', 
-              title: 'DIV C PODIUMS', 
-              text: 'Achieved consistent podium finishes, securing 2nd place in the Spring League Division C and a 3rd place podium in the Summer League Division C.', 
-              x: 50, 
-              y: 28, 
-              num: 6 
-            },
-            { 
-              year: '2018', 
-              title: 'T20 DIV B CHAMPIONS', 
-              text: 'Wolves lifted the T20 Division B Championship after a stellar victory against the Kansas Kings, led by captain and match-winner Abhilash Tatineni. The team also secured 2nd place in the MWCL T20 Division B.', 
-              photo: '/mwcl_2018_champions.jpg',
+              year: '2015', 
+              title: 'KC LEAGUE DIV B', 
+              text: 'Finished as runners-up (2nd place) in Division B of the KC Cricket League, marking the pack\'s first major tournament success.', 
               x: 65, 
-              y: 35, 
-              num: 5 
+              y: 73, 
+              num: 2 
+            },
+            { 
+              year: '2016', 
+              title: 'MWCL T20 SPRING', 
+              text: 'Claimed a dominant 1st place in Group B during the MWCL T20 Spring League, asserting the team\'s strength in the group stages.', 
+              x: 32, 
+              y: 56, 
+              num: 3 
             },
             { 
               year: '2017', 
@@ -1425,28 +1412,55 @@ function App() {
               num: 4 
             },
             { 
-              year: '2016', 
-              title: 'MWCL T20 SPRING', 
-              text: 'Claimed a dominant 1st place in Group B during the MWCL T20 Spring League, asserting the team\'s strength in the group stages.', 
-              x: 32, 
-              y: 56, 
-              num: 3 
-            },
-            { 
-              year: '2015', 
-              title: 'KC LEAGUE DIV B', 
-              text: 'Finished as runners-up (2nd place) in Division B of the KC Cricket League, marking the pack\'s first major tournament success.', 
+              year: '2018', 
+              title: 'T20 DIV B CHAMPIONS', 
+              text: 'Wolves lifted the T20 Division B Championship after a stellar victory against the Kansas Kings, led by captain and match-winner Abhilash Tatineni. The team also secured 2nd place in the MWCL T20 Division B.', 
+              photo: '/mwcl_2018_champions.jpg',
               x: 65, 
-              y: 73, 
-              num: 2 
+              y: 35, 
+              num: 5 
             },
             { 
-              year: '2013', 
-              title: 'WOLVES ESTABLISHED', 
-              text: 'Wolves Cricket Club was established by founders Abhiram Varchas and Vinay Jaideep Reddy, laying the first foundations of the pack.', 
+              year: '2019', 
+              title: 'DIV C PODIUMS', 
+              text: 'Achieved consistent podium finishes, securing 2nd place in the Spring League Division C and a 3rd place podium in the Summer League Division C.', 
               x: 50, 
-              y: 86, 
-              num: 1 
+              y: 28, 
+              num: 6 
+            },
+            { 
+              year: '2020', 
+              title: 'MWCL T20 BLAST RUNNERS-UP', 
+              text: 'Finished as runners-up in the highly competitive MWCL T20 Blast after a hard-fought final against the Mystics, led by captain Swarup Daggupati.', 
+              x: 35, 
+              y: 22, 
+              num: 7 
+            },
+            { 
+              year: '2022', 
+              title: 'SUMMER DIV B CHAMPIONS', 
+              text: 'Champions! Wolves clinched the Summer League Division B Championship in a thrilling final against Pehlwan XI, led by captain Vinay Jaideep (Jamaal). The team also finished as runners-up in the T10 League Division B.', 
+              photo: '/summer_2022_champions.jpg',
+              x: 43, 
+              y: 16, 
+              num: 8 
+            },
+            { 
+              year: '2025', 
+              title: 'MWCL T20 CHAMPIONS', 
+              text: 'Champions! Wolves captured the MWCL T20 Division B Championship with a spectacular win over the Pirates, under the leadership of captain Abhiram Varchas. Avishkar Sreerama was named Man of the Match.', 
+              photo: '/mwcl_2025_champions.jpg',
+              x: 50, 
+              y: 9, 
+              num: 9 
+            },
+            { 
+              year: '2026', 
+              title: 'WOLVES REFORMED', 
+              text: 'Wolves officially reformed as Wolves Cricket Club, introducing a refreshed and premium club structure and launching our official new motto: "HUNT IS ON".', 
+              x: 58, 
+              y: 4, 
+              num: 10 
             }
           ];
 
@@ -1693,80 +1707,6 @@ function App() {
               </div>
             </div>
           </section>
-
-        <section id="more-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
-          <div className="section-title-wrap">
-            <h2 className="tab-section-heading">CLUB DETAILS & MORE</h2>
-            <p className="tab-section-subtitle">Wolves Cricket Club sponsors, code of conduct, and official media releases.</p>
-          </div>
-
-          <div className="more-grid">
-            {/* Sponsors Card */}
-            <div className="more-card glass-card">
-              <h3 className="more-card-title">
-                <Users size={20} style={{ color: 'var(--accent-orange)' }} />
-                Sponsors & Partners
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6', margin: '0 0 16px 0' }}>
-                We are proud to partner with local businesses. Want to support the Wolves pack? Get in touch with us to explore sponsorship options!
-              </p>
-              <div className="sponsors-grid">
-                <div className="sponsor-logo-box">
-                  YOUR BRAND HERE
-                </div>
-                <div className="sponsor-logo-box" style={{ fontSize: '0.8rem' }}>
-                  BECOME A PARTNER
-                </div>
-              </div>
-            </div>
-
-            {/* Club Rules Card */}
-            <div className="more-card glass-card">
-              <h3 className="more-card-title">
-                <Shield size={20} style={{ color: 'var(--accent-orange)' }} />
-                Code of Conduct
-              </h3>
-              <ul className="rules-list">
-                <li className="rule-item">
-                  <span className="rule-bullet">✦</span>
-                  <span><strong>Pack Mentality:</strong> Attack like a pack on the field, support teammates off the field.</span>
-                </li>
-                <li className="rule-item">
-                  <span className="rule-bullet">✦</span>
-                  <span><strong>Attendance:</strong> Notify captains at least 48 hours in advance if unavailable for selection.</span>
-                </li>
-                <li className="rule-item">
-                  <span className="rule-bullet">✦</span>
-                  <span><strong>Punctuality:</strong> Arrive at the venue at least 45 minutes before match start.</span>
-                </li>
-                <li className="rule-item">
-                  <span className="rule-bullet">✦</span>
-                  <span><strong>Equipment:</strong> Handle team kits and training gear with absolute respect and care.</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Media Releases Card */}
-            <div className="more-card glass-card">
-              <h3 className="more-card-title">
-                <Trophy size={20} style={{ color: 'var(--accent-orange)' }} />
-                Media & News
-              </h3>
-              <div className="media-list">
-                <div className="media-item">
-                  <span className="media-date">June 2026</span>
-                  <h4 className="media-item-title">Relentless Campaign Start</h4>
-                  <p className="media-summary">Wolves CC launches into the 2026 Summer League with back-to-back dominant wins.</p>
-                </div>
-                <div className="media-item">
-                  <span className="media-date">October 2025</span>
-                  <h4 className="media-item-title">MWCL T20 Championship Title</h4>
-                  <p className="media-summary">Wolves CC crowned the 2025 MWCL T-20 Div B Champions in a historic final victory.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 </main>
 
       {/* 7. MAXIMIZED PLAYER MODAL (Genuinely accurate CricClubs details modal remains fully supported) */}
@@ -2024,7 +1964,8 @@ function App() {
         color: 'var(--text-muted)',
         fontSize: '0.85rem'
       }}>
-        <p>© 2026 Wolves Cricket Club. Designed for Kansas Cricket Legacy. Slogan powered by pack power.</p>
+        <p style={{ margin: 0 }}>© 2026 Wolves Cricket Club. Designed for Kansas Cricket Legacy.</p>
+        <p style={{ margin: '4px 0 0 0', opacity: 0.8 }}>Developed by SS&AI solutions</p>
       </footer>
     </div>
   );
