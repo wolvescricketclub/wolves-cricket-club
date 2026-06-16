@@ -4,58 +4,6 @@
       "cells": [
         "1",
         "League",
-        "06/07/2026",
-        "9:00 AM",
-        "Bharat XI",
-        "Wolves",
-        "Minor Park",
-        "Chiefs CC",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
-        "06/13/2026",
-        "8:00 AM",
-        "Desi Spartans",
-        "Wolves",
-        "Liberty Ground",
-        "Mystics",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "League",
         "06/20/2026",
         "2:00 PM",
         "Desi Spartans",
@@ -80,7 +28,7 @@
     },
     {
       "cells": [
-        "4",
+        "2",
         "League",
         "06/28/2026",
         "9:00 AM",
@@ -106,7 +54,7 @@
     },
     {
       "cells": [
-        "5",
+        "3",
         "League",
         "07/12/2026",
         "8:00 AM",
@@ -134,6 +82,58 @@
       "cells": [
         "1",
         "League",
+        "06/13/2026",
+        "8:00 AM",
+        "Desi Spartans",
+        "Wolves",
+        "Liberty Ground",
+        "Mystics",
+        "",
+        "Scorecard"
+      ],
+      "headers": [
+        "#",
+        "match type",
+        "date",
+        "time",
+        "team 1 (home)",
+        "team 2",
+        "ground",
+        "umpire1",
+        "umpire2",
+        "scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "2",
+        "League",
+        "06/07/2026",
+        "9:00 AM",
+        "Bharat XI",
+        "Wolves",
+        "Minor Park",
+        "Chiefs CC",
+        "",
+        "Scorecard"
+      ],
+      "headers": [
+        "#",
+        "match type",
+        "date",
+        "time",
+        "team 1 (home)",
+        "team 2",
+        "ground",
+        "umpire1",
+        "umpire2",
+        "scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "3",
+        "League",
         "05/31/2026",
         "9:30 AM",
         "Kcc Topeka",
@@ -158,7 +158,7 @@
     },
     {
       "cells": [
-        "2",
+        "4",
         "League",
         "05/16/2026",
         "2:00 PM",
@@ -184,7 +184,7 @@
     },
     {
       "cells": [
-        "3",
+        "5",
         "League",
         "05/09/2026",
         "10:00 AM",
@@ -210,7 +210,7 @@
     },
     {
       "cells": [
-        "4",
+        "6",
         "League",
         "05/03/2026",
         "10:00 AM",
@@ -236,7 +236,7 @@
     },
     {
       "cells": [
-        "5",
+        "7",
         "League",
         "04/25/2026",
         "9:00 AM",
@@ -266,82 +266,6 @@
         "2026 MWCL T30",
         "2026 DIV B",
         "League",
-        "06/07/2026",
-        "9:00 AM",
-        "Bharat XI",
-        "Wolves",
-        "Minor Park",
-        "Chiefs CC",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "2026 MWCL T30",
-        "2026 DIV B",
-        "League",
-        "06/13/2026",
-        "8:00 AM",
-        "Desi Spartans",
-        "Wolves",
-        "Liberty Ground",
-        "Mystics",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "2026 MWCL T30",
-        "2026 DIV B",
-        "League",
         "06/20/2026",
         "2:00 PM",
         "Desi Spartans",
@@ -376,7 +300,7 @@
     },
     {
       "cells": [
-        "4",
+        "2",
         "2026 MWCL T30",
         "2026 DIV B",
         "League",
@@ -414,7 +338,7 @@
     },
     {
       "cells": [
-        "5",
+        "3",
         "2026 MWCL T30",
         "2026 DIV B",
         "League",
@@ -424,6 +348,82 @@
         "Wolves",
         "Minor Park",
         "Raptors",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "headers": [
+        "#",
+        "series",
+        "division",
+        "match type",
+        "date",
+        "time",
+        "team one",
+        "team two",
+        "ground",
+        "umpire one",
+        "umpire two",
+        "umpire three",
+        "umpire four",
+        "match manager",
+        "scorer 1",
+        "scorer 2"
+      ]
+    },
+    {
+      "cells": [
+        "4",
+        "2026 MWCL T30",
+        "2026 DIV B",
+        "League",
+        "06/13/2026",
+        "8:00 AM",
+        "Desi Spartans",
+        "Wolves",
+        "Liberty Ground",
+        "Mystics",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "headers": [
+        "#",
+        "series",
+        "division",
+        "match type",
+        "date",
+        "time",
+        "team one",
+        "team two",
+        "ground",
+        "umpire one",
+        "umpire two",
+        "umpire three",
+        "umpire four",
+        "match manager",
+        "scorer 1",
+        "scorer 2"
+      ]
+    },
+    {
+      "cells": [
+        "5",
+        "2026 MWCL T30",
+        "2026 DIV B",
+        "League",
+        "06/07/2026",
+        "9:00 AM",
+        "Bharat XI",
+        "Wolves",
+        "Minor Park",
+        "Chiefs CC",
         "",
         "",
         "",
@@ -641,519 +641,6 @@
       ]
     }
   ],
-  "cplkc": [
-    {
-      "cells": [
-        "1",
-        "League",
-        "06/06/2026",
-        "10:45 AM",
-        "KC Royals",
-        "Wolves",
-        "OCG",
-        "Prime XI",
-        "Prime XI",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
-        "06/14/2026",
-        "7:45 AM",
-        "Dominators",
-        "Wolves",
-        "OCG",
-        "LIMRA Defenders",
-        "LIMRA Defenders",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "League",
-        "06/21/2026",
-        "7:45 AM",
-        "Rising Stars",
-        "Wolves",
-        "PCG",
-        "KC Lions",
-        "KC Lions",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "4",
-        "League",
-        "06/27/2026",
-        "7:45 AM",
-        "Killer XI",
-        "Wolves",
-        "PCG",
-        "Punjab XI",
-        "Punjab XI",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "1",
-        "League",
-        "05/30/2026",
-        "10:45 AM",
-        "Blue Titans",
-        "Wolves",
-        "OCG",
-        "Shivams",
-        "Shivams",
-        ""
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
-        "05/17/2026",
-        "10:45 AM",
-        "Nepal XI",
-        "Wolves",
-        "PCG",
-        "Telugu Yuvatha",
-        "",
-        "Scorecard"
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "League",
-        "05/10/2026",
-        "7:45 AM",
-        "Pehlwan XI",
-        "Wolves",
-        "PCG",
-        "Bengal Warriors",
-        "",
-        "Scorecard"
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "4",
-        "League",
-        "04/26/2026",
-        "7:45 AM",
-        "Sunrisers Lakes XI",
-        "Wolves",
-        "OCG",
-        "LIMRA Defenders",
-        "",
-        "Scorecard"
-      ],
-      "headers": [
-        "#",
-        "match type",
-        "date",
-        "time",
-        "team 1 (home)",
-        "team 2",
-        "ground",
-        "umpire1",
-        "umpire2",
-        "scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "1",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "06/06/2026",
-        "10:45 AM",
-        "KC Royals",
-        "Wolves",
-        "OCG",
-        "Prime XI",
-        "Prime XI",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "06/14/2026",
-        "7:45 AM",
-        "Dominators",
-        "Wolves",
-        "OCG",
-        "LIMRA Defenders",
-        "LIMRA Defenders",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "06/21/2026",
-        "7:45 AM",
-        "Rising Stars",
-        "Wolves",
-        "PCG",
-        "KC Lions",
-        "KC Lions",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "4",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "06/27/2026",
-        "7:45 AM",
-        "Killer XI",
-        "Wolves",
-        "PCG",
-        "Punjab XI",
-        "Punjab XI",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "5",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "05/30/2026",
-        "10:45 AM",
-        "Blue Titans",
-        "Wolves",
-        "OCG",
-        "Shivams",
-        "Shivams",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "6",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "05/17/2026",
-        "10:45 AM",
-        "Nepal XI",
-        "Wolves",
-        "PCG",
-        "Telugu Yuvatha",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "7",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "05/10/2026",
-        "7:45 AM",
-        "Pehlwan XI",
-        "Wolves",
-        "PCG",
-        "Bengal Warriors",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    },
-    {
-      "cells": [
-        "8",
-        "2026 Spring T15",
-        "Div B",
-        "League",
-        "04/26/2026",
-        "7:45 AM",
-        "Sunrisers Lakes XI",
-        "Wolves",
-        "OCG",
-        "LIMRA Defenders",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "headers": [
-        "#",
-        "series",
-        "division",
-        "match type",
-        "date",
-        "time",
-        "team one",
-        "team two",
-        "ground",
-        "umpire one",
-        "umpire two",
-        "umpire three",
-        "umpire four",
-        "match manager",
-        "scorer 1",
-        "scorer 2"
-      ]
-    }
-  ],
-  "timestamp": "2026-06-03T16:26:07.988Z"
+  "cplkc": [],
+  "timestamp": "2026-06-16T17:39:08.050Z"
 }

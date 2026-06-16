@@ -126,18 +126,7 @@ const CAPTAINS_DATA = [
       "Key contributor to team development and active roster leadership"
     ]
   },
-  {
-    name: "Gautham Dasari",
-    terms: [
-      { league: "CPLKC", years: "2015 - 2016" }
-    ],
-    hasPhoto: false,
-    bio: "An early pillar of the club who set the foundation of Wolves' leadership and team culture during the CPLKC seasons.",
-    achievements: [
-      "2015 KC League Division B Runner-Up",
-      "Established early CPLKC campaign structures"
-    ]
-  },
+
   {
     name: "Mahesh Bandari",
     terms: [
@@ -162,18 +151,7 @@ const CAPTAINS_DATA = [
       "Maintained team consistency through transition"
     ]
   },
-  {
-    name: "Kishore Bache",
-    terms: [
-      { league: "CPLKC", years: "2021" }
-    ],
-    hasPhoto: false,
-    bio: "Stepped up to lead the Wolves pack in the CPLKC 2021 season, anchoring the team with tactical guidance.",
-    achievements: [
-      "Defensive layouts coordinator in CPLKC 2021",
-      "Tactical bowling rotation lead"
-    ]
-  },
+
   {
     name: "Minhaj Munna",
     terms: [
