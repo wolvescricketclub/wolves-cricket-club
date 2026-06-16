@@ -1392,6 +1392,7 @@ function App() {
               year: '2022', 
               title: 'SUMMER DIV B CHAMPIONS', 
               text: 'Champions! Wolves clinched the Summer League Division B Championship in a thrilling final against Pehlwan XI, led by captain Vinay Jaideep (Jamaal). The team also finished as runners-up in the T10 League Division B.', 
+              photo: '/summer_2022_champions.jpg',
               x: 43, 
               y: 16, 
               num: 8 
