@@ -3781,3 +3781,123 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: none;
 }
 
+/* MORE SECTION STYLING */
+.more-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.more-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.more-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--accent-orange);
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.sponsor-logo-box {
+  background: rgba(10, 17, 40, 0.4);
+  border: 1px dashed rgba(255, 107, 0, 0.25);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.sponsor-logo-box:hover {
+  border-color: var(--accent-orange);
+  background: rgba(255, 107, 0, 0.05);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.rule-bullet {
+  color: var(--accent-orange);
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.media-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.media-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+.media-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.media-date {
+  font-size: 0.75rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.media-item-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.media-summary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+

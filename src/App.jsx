@@ -249,6 +249,9 @@ const getPlayerIntro = (player) => {
   } else if (id === "3349008" || name.includes("Gopi")) {
     text = "Gopi Kamatham is an elite All-Rounder for Wolves Cricket Club, renowned for providing outstanding balance to the squad. Equally capable of clearing boundaries and taking crucial wickets, he is a primary player who steps up in big games.";
     quote = "";
+  } else if (id === "4238824" || name.includes("Pavan") || name.includes("Kasu")) {
+    text = "Pavan Reddy Kasu is a dedicated squad member for Wolves Cricket Club. His commitment to team dynamics, reliable support in training, and athletic agility make him an essential asset to the Wolves' pack on and off the field.";
+    quote = "Every role matters—Pavan is ready to step up whenever the pack calls.";
   } else {
     if (player.role.includes("All Rounder")) {
       text = `${name} is an elite All-Rounder for Wolves Cricket Club, renowned for providing outstanding balance to the squad. Equally capable of clearing boundaries and taking crucial wickets, he is a primary player who steps up in big games.`;
@@ -683,7 +686,8 @@ function App() {
         'captains',
         'database',
         'gallery',
-        'contact'
+        'contact',
+        'more'
       ];
       
       const scrollPosition = window.scrollY + 150;
@@ -941,16 +945,12 @@ function App() {
             >
               CONTACT
             </button>
-            <div className="nav-more-dropdown-container">
-              <button className="nav-menu-link" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                MORE <span className="dropdown-arrow">▼</span>
-              </button>
-              <div className="nav-more-dropdown-menu">
-                <span className="dropdown-menu-item-disabled">Sponsors (Soon)</span>
-                <span className="dropdown-menu-item-disabled">Club Rules (Soon)</span>
-                <span className="dropdown-menu-item-disabled">Media Releases (Soon)</span>
-              </div>
-            </div>
+            <button 
+              onClick={() => handleNavLinkClick('more')} 
+              className={`nav-menu-link ${activeTab === 'more' ? 'active' : ''}`}
+            >
+              MORE
+            </button>
           </nav>
         </div>
       </header>
@@ -1693,6 +1693,80 @@ function App() {
               </div>
             </div>
           </section>
+
+        <section id="more-tab-view" className="tab-view-section scroll-fade-in fade-in-active">
+          <div className="section-title-wrap">
+            <h2 className="tab-section-heading">CLUB DETAILS & MORE</h2>
+            <p className="tab-section-subtitle">Wolves Cricket Club sponsors, code of conduct, and official media releases.</p>
+          </div>
+
+          <div className="more-grid">
+            {/* Sponsors Card */}
+            <div className="more-card glass-card">
+              <h3 className="more-card-title">
+                <Users size={20} style={{ color: 'var(--accent-orange)' }} />
+                Sponsors & Partners
+              </h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6', margin: '0 0 16px 0' }}>
+                We are proud to partner with local businesses. Want to support the Wolves pack? Get in touch with us to explore sponsorship options!
+              </p>
+              <div className="sponsors-grid">
+                <div className="sponsor-logo-box">
+                  YOUR BRAND HERE
+                </div>
+                <div className="sponsor-logo-box" style={{ fontSize: '0.8rem' }}>
+                  BECOME A PARTNER
+                </div>
+              </div>
+            </div>
+
+            {/* Club Rules Card */}
+            <div className="more-card glass-card">
+              <h3 className="more-card-title">
+                <Shield size={20} style={{ color: 'var(--accent-orange)' }} />
+                Code of Conduct
+              </h3>
+              <ul className="rules-list">
+                <li className="rule-item">
+                  <span className="rule-bullet">✦</span>
+                  <span><strong>Pack Mentality:</strong> Attack like a pack on the field, support teammates off the field.</span>
+                </li>
+                <li className="rule-item">
+                  <span className="rule-bullet">✦</span>
+                  <span><strong>Attendance:</strong> Notify captains at least 48 hours in advance if unavailable for selection.</span>
+                </li>
+                <li className="rule-item">
+                  <span className="rule-bullet">✦</span>
+                  <span><strong>Punctuality:</strong> Arrive at the venue at least 45 minutes before match start.</span>
+                </li>
+                <li className="rule-item">
+                  <span className="rule-bullet">✦</span>
+                  <span><strong>Equipment:</strong> Handle team kits and training gear with absolute respect and care.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Media Releases Card */}
+            <div className="more-card glass-card">
+              <h3 className="more-card-title">
+                <Trophy size={20} style={{ color: 'var(--accent-orange)' }} />
+                Media & News
+              </h3>
+              <div className="media-list">
+                <div className="media-item">
+                  <span className="media-date">June 2026</span>
+                  <h4 className="media-item-title">Relentless Campaign Start</h4>
+                  <p className="media-summary">Wolves CC launches into the 2026 Summer League with back-to-back dominant wins.</p>
+                </div>
+                <div className="media-item">
+                  <span className="media-date">October 2025</span>
+                  <h4 className="media-item-title">MWCL T20 Championship Title</h4>
+                  <p className="media-summary">Wolves CC crowned the 2025 MWCL T-20 Div B Champions in a historic final victory.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 </main>
 
       {/* 7. MAXIMIZED PLAYER MODAL (Genuinely accurate CricClubs details modal remains fully supported) */}
