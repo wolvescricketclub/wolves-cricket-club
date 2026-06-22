@@ -284,7 +284,7 @@ function PlayerAvatar({ player, size = 'card' }) {
 
   let containerStyle;
   if (size === 'card') {
-    containerStyle = { width: '100%', height: '240px', borderRadius: '12px' };
+    containerStyle = { width: '100%', height: '100%', borderRadius: '12px' };
   } else if (size === 'modal') {
     containerStyle = { width: '100%', height: '100%', minHeight: '360px', borderRadius: 0 };
   } else {
