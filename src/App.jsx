@@ -71,10 +71,10 @@ const CUSTOM_JERSEYS = {
   "4238824": 88    // Pavan Reddy Kasu (Reserve) -> 88
 };
 
-// Custom stats corrections to guarantee absolute precision (e.g. Srinadh G's 3 half centuries)
+// Custom stats corrections to guarantee absolute precision (e.g. Srinadh G's 4 half centuries)
 const STATS_OVERRIDES = {
   "4248567": { // Srinadh G
-    halfCenturies: 3
+    halfCenturies: 4
   }
 };
 
@@ -959,12 +959,9 @@ function App() {
           won: cells[3],
           lost: cells[4],
           nr: cells[5],
-          tie: cells[6],
-          pts: cells[7],
-          winPct: cells[8],
-          nrr: cells[9],
-          runsFor: cells[10],
-          runsAgainst: cells[11]
+          pts: cells[6],
+          winPct: cells[7],
+          nrr: cells[8]
         };
       }).filter(Boolean);
     };
@@ -1294,6 +1291,7 @@ function App() {
                           <th>NR</th>
                           <th>PTS</th>
                           <th className="hide-on-mobile">NRR</th>
+                          <th className="hide-on-mobile">WIN %</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -1311,6 +1309,7 @@ function App() {
                               <td>{teamRow.nr}</td>
                               <td className="points-cell">{teamRow.pts}</td>
                               <td className="nrr-cell hide-on-mobile">{teamRow.nrr}</td>
+                              <td className="win-pct-cell hide-on-mobile">{teamRow.winPct}</td>
                             </tr>
                           );
                         })}
