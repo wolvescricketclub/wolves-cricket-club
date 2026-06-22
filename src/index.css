@@ -1726,7 +1726,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 3px solid var(--accent-orange);
   box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
   object-fit: cover;
-  background: #FFFFFF;
+  background: #000000;
   transition: transform 0.4s ease;
 }
 
@@ -1922,7 +1922,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 42px;
   border-radius: 50%;
   border: 2px solid var(--accent-orange);
-  object-fit: contain;
+  object-fit: cover;
   background: #000000;
 }
 
@@ -2283,7 +2283,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
   border: 1.5px solid var(--accent-orange);
   background: #000000;
 }
@@ -2822,7 +2822,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 20px rgba(255, 107, 0, 0.35);
   background: #000000;
   flex-shrink: 0;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .brand-intro-text {

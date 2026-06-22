@@ -377,10 +377,15 @@ async function run() {
                 };
             });
 
+            let finalRole = primaryProfile.role || details.role || 'Player';
+            if (["2648703", "3311166", "486878", "3575314", "6080610"].includes(String(primaryProfile.playerId))) {
+                finalRole = "Batter";
+            }
+
             const consolidated = {
                 playerId: primaryProfile.playerId,
                 name: group.name,
-                role: primaryProfile.role || details.role || 'Player',
+                role: finalRole,
                 profileUrl: primaryProfile.profileUrl,
                 ...details
             };

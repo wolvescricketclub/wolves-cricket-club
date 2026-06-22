@@ -233,7 +233,7 @@ const getPlayerIntro = (player) => {
     text = "Sampath Reddy is an elite All-Rounder for Wolves Cricket Club, renowned for providing outstanding balance to the squad. Equally capable of clearing boundaries and taking crucial wickets, he is a primary player who steps up in big games.";
     quote = "";
   } else if (id === "6080610" || name.includes("Vinay Reddy")) {
-    text = "Vinay Reddy is an elite batsmen for Wolves Cricket Club, renowned for providing outstanding balance to the squad. Capable of clearing boundaries, he is a primary player who steps up in big games.";
+    text = "Vinay Reddy is a key batsman for Wolves Cricket Club, known for his clean ball-striking, boundary-clearing ability, and anchoring the middle order during clutch chase situations.";
     quote = "";
   } else if (id === "2648703" || name.includes("Mokshith")) {
     text = "Mokshith Reddy is a premier batsman for the Wolves, known for stellar shot selection, heavy boundary-hitting, and anchoring the innings under extreme pressure. A technical masterclass player who leads from the front.";
