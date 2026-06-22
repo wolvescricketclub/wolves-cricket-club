@@ -885,16 +885,16 @@ function App() {
     const comingWeekEnd = new Date(refDate);
     comingWeekEnd.setDate(refDate.getDate() + 8);
     
-    // Filter actual matches in this coming week range
+    // Filter actual matches in this coming week range (excluding today's match since it is already over)
     let filtered = allMatches.filter(m => {
       if (!m.rawDate) return false;
-      return m.rawDate >= refDate && m.rawDate <= comingWeekEnd;
+      return m.rawDate > refDate && m.rawDate <= comingWeekEnd;
     });
 
     // Make sure we have at least one MWCL match in the list (or fallback if none)
     const hasMwcl = filtered.some(m => m.format.includes('MWCL'));
     if (!hasMwcl) {
-      const nextMwcl = allMatches.find(m => m.format.includes('MWCL') && m.rawDate && m.rawDate >= refDate);
+      const nextMwcl = allMatches.find(m => m.format.includes('MWCL') && m.rawDate && m.rawDate > refDate);
       if (nextMwcl) {
         filtered.push(nextMwcl);
       }
@@ -903,7 +903,7 @@ function App() {
     // Make sure we have at least one CPLKC match in the list (or fallback if none)
     const hasCplkc = filtered.some(m => m.format.includes('CPLKC') || m.id.includes('CPLKC'));
     if (!hasCplkc) {
-      const nextCplkc = allMatches.find(m => m.format.includes('CPLKC') && m.rawDate && m.rawDate >= refDate);
+      const nextCplkc = allMatches.find(m => m.format.includes('CPLKC') && m.rawDate && m.rawDate > refDate);
       if (nextCplkc) {
         filtered.push(nextCplkc);
       } else {

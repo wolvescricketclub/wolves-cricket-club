@@ -290,7 +290,7 @@
     "name": "Gopi Kamatham",
     "role": "All Rounder",
     "profileUrl": "https://cricclubs.com/mwcl/viewPlayer.do?playerId=3349008&clubId=93",
-    "matchesPlayed": 67,
+    "matchesPlayed": 68,
     "runs": 84,
     "wickets": 52,
     "battingStyle": "Right Handed Batter",
@@ -327,7 +327,7 @@
         "6s": "0"
       },
       "T10": {
-        "Mat": "16",
+        "Mat": "17",
         "Inns": "5",
         "NO": "4",
         "Runs": "15",
@@ -385,16 +385,16 @@
         "5w": "0"
       },
       "T10": {
-        "Mat": "16",
-        "Inns": "15",
-        "Overs": "41.0",
-        "Runs": "336",
+        "Mat": "17",
+        "Inns": "16",
+        "Overs": "44.0",
+        "Runs": "365",
         "Wkts": "15",
         "BBF": "35/3",
         "Mdns": "0",
-        "Ave": "22.40",
-        "Econ": "8.20",
-        "SR": "16.40",
+        "Ave": "24.33",
+        "Econ": "8.30",
+        "SR": "17.60",
         "4w": "0",
         "5w": "0"
       },
