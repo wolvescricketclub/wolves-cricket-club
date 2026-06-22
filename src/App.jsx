@@ -434,10 +434,13 @@ function App() {
       const jerseyNum = rawJersey ? parseInt(String(rawJersey).trim(), 10) : 99;
 
       // Assign custom roles based on user request:
-      // Mokshith (2648703), Vignesh (3311166), Sai Avishkar (486878) are Batters.
-      // Everyone else is an All Rounder (including Srinivas Reddy, who is not a batter).
+      // Mokshith (2648703), Vignesh (3311166), Sai Avishkar (486878), Jaswanth Ch (3575314), Vinay Reddy (6080610) are Batters.
       let assignedRole = "All Rounder";
-      if (player.playerId === "2648703" || player.playerId === "3311166" || player.playerId === "486878") {
+      if (player.playerId === "2648703" || 
+          player.playerId === "3311166" || 
+          player.playerId === "486878" ||
+          player.playerId === "3575314" ||
+          player.playerId === "6080610") {
         assignedRole = "Batter";
       }
 
@@ -970,13 +973,8 @@ function App() {
   // Photos Gallery list (Temporarily emptied for real photos later)
   const photosList = useMemo(() => [], []);
 
-  // Videos Highlight list
-  const videosList = useMemo(() => [
-    { title: "Summer T20 Championship Final Highlights", duration: "12:45", category: "MWCL Match" },
-    { title: "Abhiram Varchas Match-Winning Innings", duration: "5:20", category: "Batting Highlights" },
-    { title: "Vinay Jaideep Reddy 5-Wicket Spell", duration: "3:15", category: "Bowling Highlights" },
-    { title: "Net Practice & Training Session Highlights", duration: "4:40", category: "Practice Match" }
-  ], []);
+  // Videos Highlight list (Temporarily emptied for real videos later)
+  const videosList = useMemo(() => [], []);
 
   return (
     <div style={{ paddingBottom: '60px' }}>
@@ -985,7 +983,7 @@ function App() {
       <div className="top-social-bar">
         <div className="top-social-bar-inner">
           <div className="social-links-left">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/wo1vescricketclub/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
           </div>
@@ -1699,22 +1697,32 @@ function App() {
                 </div>
               )
             ) : (
-              <div className="videos-gallery-grid">
-                {videosList.map((video, index) => (
-                  <div key={index} className="gallery-video-card">
-                    <div className="video-card-thumbnail">
-                      <div className="video-thumbnail-placeholder">
-                        <div className="video-play-btn-circle">▶</div>
-                        <span className="video-duration-tag">{video.duration}</span>
+              videosList.length === 0 ? (
+                <div className="no-matches-card glass-card" style={{ padding: '60px 40px', maxWidth: '600px', margin: '40px auto 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <Video size={36} style={{ color: 'var(--accent-orange)', marginBottom: '16px' }} />
+                  <h3 style={{ fontFamily: 'var(--font-heading)', margin: '0 0 8px 0', fontSize: '1.25rem', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>VIDEOS COMING SOON</h3>
+                  <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: '1.6' }}>
+                    Match highlights, net session training drills, and exclusive squad interviews are currently being edited. Videos will be uploaded here shortly!
+                  </p>
+                </div>
+              ) : (
+                <div className="videos-gallery-grid">
+                  {videosList.map((video, index) => (
+                    <div key={index} className="gallery-video-card">
+                      <div className="video-card-thumbnail">
+                        <div className="video-thumbnail-placeholder">
+                          <div className="video-play-btn-circle">▶</div>
+                          <span className="video-duration-tag">{video.duration}</span>
+                        </div>
+                      </div>
+                      <div className="video-card-info">
+                        <span className="video-category">{video.category}</span>
+                        <h4 className="video-title">{video.title}</h4>
                       </div>
                     </div>
-                    <div className="video-card-info">
-                      <span className="video-category">{video.category}</span>
-                      <h4 className="video-title">{video.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )
             )}
           </section>
 

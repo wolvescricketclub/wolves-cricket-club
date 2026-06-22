@@ -1923,8 +1923,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   border: 2px solid var(--accent-orange);
   object-fit: contain;
-  padding: 2px;
-  background: #FFFFFF;
+  background: #000000;
 }
 
 .nav-brand-title {
@@ -2285,9 +2284,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 44px;
   border-radius: 50%;
   object-fit: contain;
-  padding: 2px;
   border: 1.5px solid var(--accent-orange);
-  background: #FFFFFF;
+  background: #000000;
 }
 
 .battle-opponent-logo-avatar {
@@ -2822,10 +2820,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   border: 3px solid var(--accent-orange);
   box-shadow: 0 0 20px rgba(255, 107, 0, 0.35);
-  background: #FFFFFF;
+  background: #000000;
   flex-shrink: 0;
   object-fit: contain;
-  padding: 4px;
 }
 
 .brand-intro-text {
