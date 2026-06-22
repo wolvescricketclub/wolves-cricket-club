@@ -2143,10 +2143,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .usa-card-jersey {
   position: absolute;
-  top: 12%; /* Placed in the top right of the photo frame, just below the blue lining */
+  top: calc(12% + 6px); /* Placed just below the blue lining with a clean spacing */
   right: 12px;
   font-family: var(--font-heading);
-  font-size: 4.5rem;
+  font-size: 2.8rem;
   font-weight: 900;
   font-style: italic;
   color: rgba(0, 40, 104, 0.18); /* Deep navy blue watermark on the light photo background */
