@@ -2191,50 +2191,5 @@
         "5w": "0"
       }
     }
-  },
-  {
-    "playerId": "4238824",
-    "name": "Pavan Reddy Kasu",
-    "role": "Squad Member",
-    "profileUrl": "https://cricclubs.com/cplkc/viewPlayer.do?playerId=4238824&clubId=85",
-    "matchesPlayed": 0,
-    "runs": 0,
-    "wickets": 0,
-    "battingStyle": "Right Handed Batter",
-    "bowlingStyle": "Right Arm Medium",
-    "jerseyNumber": "88",
-    "photoUrl": "https://static.cricclubs.com/utilsv2/app/assets/images/pbcc-logo.png",
-    "battingStats": {
-      "T20": {
-        "Mat": "0",
-        "Inns": "0",
-        "NO": "0",
-        "Runs": "0",
-        "Balls": "0",
-        "Ave": "0.00",
-        "SR": "0.00",
-        "HS": "0",
-        "100s": "0",
-        "50s": "0",
-        "4s": "0",
-        "6s": "0"
-      }
-    },
-    "bowlingStats": {
-      "T20": {
-        "Mat": "0",
-        "Inns": "0",
-        "Overs": "0.0",
-        "Runs": "0",
-        "Wkts": "0",
-        "BBF": "0/0",
-        "Mdns": "0",
-        "Ave": "0.00",
-        "Econ": "0.00",
-        "SR": "0.00",
-        "4w": "0",
-        "5w": "0"
-      }
-    }
   }
 ]

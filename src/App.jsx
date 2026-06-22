@@ -31,7 +31,7 @@ import scrapedStandings from './assets/scraped_standings.json';
 const CAP_NUMBERS = {
   "48154": 1,    // Abhiram Varchas
   "644794": 2,   // Vinay Jaideep Reddy
-  "486878": 3,   // Sai Avishkar Sreeramaneni
+  "486878": 3,   // Sai Avishkar Sreerama
   "3311166": 4,  // Vignesh Kotte
   "3119026": 5,  // Manohar Chowdary Kambhampati
   "4248567": 6,  // Srinadh G
@@ -45,8 +45,7 @@ const CAP_NUMBERS = {
   "2648703": 14, // Mokshith Reddy
   "3626346": 15, // Abhilash Yadav
   "6124119": 16, // Mourya Chiluka
-  "3349008": 17, // Gopi Kamatham
-  "4238824": 18  // Pavan Reddy Kasu (Reserve / Squad Member)
+  "3349008": 17  // Gopi Kamatham
 };
 // Custom Jersey Numbers Map to ensure EVERY player has a unique and beautiful jersey number
 // Custom Jersey Numbers Map matching the user's exact official club list
@@ -67,8 +66,7 @@ const CUSTOM_JERSEYS = {
   "3119026": 48,   // MANU -> 48
   "644794": 15,    // JAIDEEP -> 15
   "48154": 17,     // ABHIRAM -> 17
-  "3349008": 4,     // GOPI K -> 4
-  "4238824": 88    // Pavan Reddy Kasu (Reserve) -> 88
+  "3349008": 4      // GOPI K -> 4
 };
 
 // Custom stats corrections to guarantee absolute precision (e.g. Srinadh G's 4 half centuries)
@@ -249,9 +247,6 @@ const getPlayerIntro = (player) => {
   } else if (id === "3349008" || name.includes("Gopi")) {
     text = "Gopi Kamatham is an elite All-Rounder for Wolves Cricket Club, renowned for providing outstanding balance to the squad. Equally capable of clearing boundaries and taking crucial wickets, he is a primary player who steps up in big games.";
     quote = "";
-  } else if (id === "4238824" || name.includes("Pavan") || name.includes("Kasu")) {
-    text = "Pavan Reddy Kasu is a dedicated squad member for Wolves Cricket Club. His commitment to team dynamics, reliable support in training, and athletic agility make him an essential asset to the Wolves' pack on and off the field.";
-    quote = "Every role matters—Pavan is ready to step up whenever the pack calls.";
   } else {
     if (player.role.includes("All Rounder")) {
       text = `${name} is an elite All-Rounder for Wolves Cricket Club, renowned for providing outstanding balance to the squad. Equally capable of clearing boundaries and taking crucial wickets, he is a primary player who steps up in big games.`;
@@ -429,7 +424,7 @@ function App() {
       } else if (player.playerId === "3119026") {
         cleanName = "Manohar Chowdary Kambhampati";
       } else if (player.playerId === "486878") {
-        cleanName = "Sai Avishkar Sreeramaneni";
+        cleanName = "Sai Avishkar Sreerama";
       } else if (player.playerId === "644794") {
         cleanName = "Vinay Jaideep Reddy";
       }
