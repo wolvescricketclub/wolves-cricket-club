@@ -947,8 +947,8 @@ function App() {
           return null;
         }
         const teamName = cells[1].trim();
-        // Skip group seed placeholders (like B1, B2, B3, B4) typically used in tournament brackets
-        const isPlaceholder = /^(B\n)?B[1-4]$/i.test(teamName) || teamName === "B1" || teamName === "B2" || teamName === "B3" || teamName === "B4";
+        // Skip group seed placeholders (like B1, B2, B3, B4, BB1, BB2...) typically used in tournament brackets
+        const isPlaceholder = /^[A-Z]{1,2}[1-9]$/i.test(teamName);
         if (isPlaceholder) {
           return null;
         }
