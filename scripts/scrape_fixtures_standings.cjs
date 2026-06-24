@@ -245,7 +245,7 @@ async function scrape() {
     console.log(`Found ${cplkcStandings.length} CPLKC Standings rows.`);
 
     // Save to files
-    const projectDir = '/Users/srinadhreddy/.gemini/antigravity/scratch/wolves-cricket-club';
+    const projectDir = path.join(__dirname, '..');
     
     if (mwclFixtures.length > 0 || cplkcFixtures.length > 0) {
         const scrapedFixtures = {
