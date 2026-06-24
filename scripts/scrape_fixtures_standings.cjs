@@ -275,4 +275,7 @@ async function scrape() {
     console.log("Scraping finished successfully!");
 }
 
-scrape().catch(console.error);
+scrape().catch(err => {
+    console.error("Critical error during fixtures scraping:", err);
+    process.exit(1);
+});

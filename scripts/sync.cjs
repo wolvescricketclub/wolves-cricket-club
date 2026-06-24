@@ -443,4 +443,5 @@ async function run() {
 
 run().catch(err => {
     console.error("Critical error during multi-league sync:", err);
+    process.exit(1);
 });
