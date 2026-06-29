@@ -884,42 +884,10 @@ function App() {
     comingWeekEnd.setDate(refDate.getDate() + 8);
     
     // Filter actual matches in this coming week range (excluding today's match since it is already over)
-    let filtered = allMatches.filter(m => {
+    const filtered = allMatches.filter(m => {
       if (!m.rawDate) return false;
       return m.rawDate > refDate && m.rawDate <= comingWeekEnd;
     });
-
-    // Make sure we have at least one MWCL match in the list (or fallback if none)
-    const hasMwcl = filtered.some(m => m.format.includes('MWCL'));
-    if (!hasMwcl) {
-      const nextMwcl = allMatches.find(m => m.format.includes('MWCL') && m.rawDate && m.rawDate > refDate);
-      if (nextMwcl) {
-        filtered.push(nextMwcl);
-      }
-    }
-
-    // Make sure we have at least one CPLKC match in the list (or fallback if none)
-    const hasCplkc = filtered.some(m => m.format.includes('CPLKC') || m.id.includes('CPLKC'));
-    if (!hasCplkc) {
-      const nextCplkc = allMatches.find(m => m.format.includes('CPLKC') && m.rawDate && m.rawDate > refDate);
-      if (nextCplkc) {
-        filtered.push(nextCplkc);
-      } else {
-        // Fallback realistic next week CPLKC match
-        filtered.push({
-          id: 'CPLKC-next-fallback',
-          opponent: 'Topeka Knights',
-          opponentLogo: '🛡️',
-          date: 'Sunday, Jun 28, 2026',
-          rawDate: new Date(2026, 5, 28),
-          time: '9:00 AM',
-          venue: 'Minor Park Field 1',
-          format: 'CPLKC T-15 DIV B',
-          type: 'Home',
-          cricclubsUrl: 'https://cricclubs.com/cplkc/fixtures.do?league=100&teamId=1096&internalClubId=null&year=2026&clubId=85'
-        });
-      }
-    }
 
     // Return unique sorted matches
     const seen = new Set();
@@ -1190,13 +1158,13 @@ function App() {
               <div className="battles-column">
                 <div className="section-title-wrap-left">
                   <h2 className="tab-section-heading">UPCOMING WOLVES BATTLES</h2>
-                  <p className="tab-section-subtitle">2-Week match schedule tracker. Check times, opponents, and local venues.</p>
+                  <p className="tab-section-subtitle">Weekly match schedule tracker. Check times, opponents, and local venues.</p>
                 </div>
 
                 {upcomingMatches.length === 0 ? (
                   <div className="no-matches-card glass-card">
                     <Calendar size={24} style={{ color: 'var(--text-muted)', marginBottom: '8px' }} />
-                    <p style={{ margin: 0, color: 'var(--text-muted)' }}>No matches scheduled for the next 2 weeks.</p>
+                    <p style={{ margin: 0, color: 'var(--text-muted)' }}>No matches scheduled for this week.</p>
                   </div>
                 ) : (
                   <div className="battles-schedule-list">
