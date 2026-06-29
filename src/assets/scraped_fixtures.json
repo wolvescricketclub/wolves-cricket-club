@@ -4,20 +4,6 @@
       "cells": [
         "1",
         "League",
-        "06/28/2026",
-        "9:00 AM",
-        "Brothers XI",
-        "Wolves",
-        "Minor Park",
-        "Raptors",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
         "07/12/2026",
         "8:00 AM",
         "Bharat XI",
@@ -32,6 +18,20 @@
       "cells": [
         "1",
         "League",
+        "06/28/2026",
+        "9:00 AM",
+        "Brothers XI",
+        "Wolves",
+        "Minor Park",
+        "Raptors",
+        "",
+        "Scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "2",
+        "League",
         "06/20/2026",
         "2:00 PM",
         "Desi Spartans",
@@ -44,7 +44,7 @@
     },
     {
       "cells": [
-        "2",
+        "3",
         "League",
         "06/13/2026",
         "8:00 AM",
@@ -58,7 +58,7 @@
     },
     {
       "cells": [
-        "3",
+        "4",
         "League",
         "06/07/2026",
         "9:00 AM",
@@ -72,7 +72,7 @@
     },
     {
       "cells": [
-        "4",
+        "5",
         "League",
         "05/31/2026",
         "9:30 AM",
@@ -86,7 +86,7 @@
     },
     {
       "cells": [
-        "5",
+        "6",
         "League",
         "05/16/2026",
         "2:00 PM",
@@ -100,7 +100,7 @@
     },
     {
       "cells": [
-        "6",
+        "7",
         "League",
         "05/09/2026",
         "10:00 AM",
@@ -114,7 +114,7 @@
     },
     {
       "cells": [
-        "7",
+        "8",
         "League",
         "05/03/2026",
         "10:00 AM",
@@ -128,7 +128,7 @@
     },
     {
       "cells": [
-        "8",
+        "9",
         "League",
         "04/25/2026",
         "9:00 AM",
@@ -146,9 +146,9 @@
         "2026 MWCL T30",
         "2026 DIV B",
         "League",
-        "06/28/2026",
-        "9:00 AM",
-        "Brothers XI",
+        "07/12/2026",
+        "8:00 AM",
+        "Bharat XI",
         "Wolves",
         "Minor Park",
         "Raptors",
@@ -166,9 +166,9 @@
         "2026 MWCL T30",
         "2026 DIV B",
         "League",
-        "07/12/2026",
-        "8:00 AM",
-        "Bharat XI",
+        "06/28/2026",
+        "9:00 AM",
+        "Brothers XI",
         "Wolves",
         "Minor Park",
         "Raptors",
@@ -341,19 +341,6 @@
       ]
     }
   ],
-  "cplkc": [
-    {
-      "cells": [
-        "1",
-        "League",
-        "06/27/2026",
-        "7:45 AM",
-        "Killer XI",
-        "Wolves",
-        "PraireCricketGround",
-        "Scorecard"
-      ]
-    }
-  ],
-  "timestamp": "2026-06-24T15:13:39.379Z"
+  "cplkc": [],
+  "timestamp": "2026-06-29T14:33:52.408Z"
 }
