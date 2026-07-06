@@ -168,58 +168,18 @@ async function scrape() {
     console.log(`Found ${mwclStandings.length} MWCL Standings rows.`);
 
     // 4. Scrape CPLKC Standings (Div B)
-    console.log("Navigating to CPLKC homepage for Standings...");
-    await page.goto('https://cricclubs.com/cplkc', { waitUntil: 'networkidle2', timeout: 90000 });
+    console.log("Navigating to CPLKC points table...");
+    await page.goto('https://cricclubs.com/cplkc/pointsTable.do?clubId=85', { waitUntil: 'networkidle2', timeout: 90000 });
     console.log("Waiting 15 seconds...");
     await new Promise(resolve => setTimeout(resolve, 15000));
 
-    console.log("Scrolling CPLKC 'Div' dropdown into view...");
+    console.log("Clicking 'Div B' option programmatically...");
     await page.evaluate(() => {
-        const triggers = Array.from(document.querySelectorAll('.ant-dropdown-trigger'));
-        const trigger = triggers.find(el => el.textContent.trim().startsWith('Div'));
-        if (trigger) trigger.scrollIntoView({ block: 'center' });
+        const items = Array.from(document.querySelectorAll('*'));
+        const target = items.find(el => el.textContent.trim() === 'Div B' && el.children.length === 0);
+        if (target) target.click();
     });
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    console.log("Clicking dropdown...");
-    const dropdownRect = await page.evaluate(() => {
-        const triggers = Array.from(document.querySelectorAll('.ant-dropdown-trigger'));
-        const trigger = triggers.find(el => el.textContent.trim().startsWith('Div'));
-        if (!trigger) return null;
-        const r = trigger.getBoundingClientRect();
-        return { x: r.left + r.width/2, y: r.top + r.height/2 };
-    });
-
-    if (dropdownRect) {
-        await page.mouse.click(dropdownRect.x, dropdownRect.y);
-    } else {
-        await page.evaluate(() => {
-            const triggers = Array.from(document.querySelectorAll('.ant-dropdown-trigger'));
-            const trigger = triggers.find(el => el.textContent.trim().startsWith('Div'));
-            if (trigger) trigger.click();
-        });
-    }
-    await new Promise(resolve => setTimeout(resolve, 3000));
-
-    console.log("Selecting 'Div B' option...");
-    const optionRect = await page.evaluate(() => {
-        const divs = Array.from(document.querySelectorAll('.ant-dropdown-menu-item, .ant-dropdown-menu li, .ant-dropdown *'));
-        const opt = divs.find(d => d.textContent.trim() === 'Div B' && d.children.length === 0);
-        if (!opt) return null;
-        opt.scrollIntoView({ block: 'nearest' });
-        const r = opt.getBoundingClientRect();
-        return { x: r.left + r.width/2, y: r.top + r.height/2 };
-    });
-
-    if (optionRect) {
-        await page.mouse.click(optionRect.x, optionRect.y);
-    } else {
-        await page.evaluate(() => {
-            const divs = Array.from(document.querySelectorAll('.ant-dropdown-menu-item, .ant-dropdown-menu li, .ant-dropdown *'));
-            const opt = divs.find(d => d.textContent.trim() === 'Div B' && d.children.length === 0);
-            if (opt) opt.click();
-        });
-    }
+    console.log("Waiting 5 seconds for Division B table to load...");
     await new Promise(resolve => setTimeout(resolve, 5000));
 
     const cplkcStandings = await page.evaluate(() => {
@@ -227,7 +187,7 @@ async function scrape() {
         const tables = Array.from(document.querySelectorAll('table'));
         const standingsTable = tables.find(t => {
             const text = t.textContent;
-            return text.includes('Team') && text.includes('Pts') && text.includes('NRR');
+            return text.includes('Wolves') && text.includes('Pts') && (text.includes('Net RR') || text.includes('NRR'));
         });
         if (standingsTable) {
             const trs = standingsTable.querySelectorAll('tr');

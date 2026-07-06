@@ -9,7 +9,8 @@ const BLACKLIST = [
     "sri ram meka",
     "vamshi krishna chanda",
     "vamsi krishna chanda",
-    "vijay kumar burada"
+    "vijay kumar burada",
+    "pavan reddy kasu"
 ];
 
 const LEAGUE_SOURCES = [
@@ -410,6 +411,10 @@ async function run() {
     const finalIds = new Set(finalRoster.map(p => String(p.playerId)));
     for (const p of existingRoster) {
         if (!finalIds.has(String(p.playerId))) {
+            if (isBlacklisted(p.name)) {
+                console.log(`❌ Excluding blacklisted existing player: "${p.name}" (${p.playerId})`);
+                continue;
+            }
             finalRoster.push(p);
             console.log(`ℹ️ Preserved existing unscraped player: ${p.name} (${p.playerId})`);
         }
