@@ -71,68 +71,22 @@ async function scrape() {
 
     // 2. Scrape CPLKC Schedule (Div B)
     console.log("Navigating to CPLKC Wolves Schedule page...");
-    await page.goto('https://cricclubs.com/cplkc/teams/AhPvVwv2nCTilahs0ZM4Vw?seriesId=is9jyGx-OJwWEqjmUwfVsg', { waitUntil: 'networkidle2', timeout: 90000 });
+    await page.goto('https://cricclubs.com/cplkc/fixtures.do?teamId=1096&clubId=85', { waitUntil: 'networkidle2', timeout: 90000 });
     console.log("Waiting 15 seconds for Cloudflare challenge to pass...");
     await new Promise(resolve => setTimeout(resolve, 15000));
-    
-    // Click 'Schedule' tab
-    await page.evaluate(() => {
-        const els = Array.from(document.querySelectorAll('*'));
-        const scheduleTab = els.find(el => el.textContent.trim() === 'Schedule' && el.children.length === 0);
-        if (scheduleTab) {
-            scheduleTab.scrollIntoView({ block: 'center' });
-            scheduleTab.click();
-        }
-    });
-    await new Promise(resolve => setTimeout(resolve, 5000));
 
-    const rawCplkcFixtures = await page.evaluate(() => {
-        const list = [];
-        const els = Array.from(document.querySelectorAll('*'));
-        const vsElements = els.filter(el => el.children.length === 0 && el.textContent.trim() === 'vs');
-        
-        vsElements.forEach(vs => {
-            let p = vs.parentElement;
-            let levels = 0;
-            while (p && levels < 5 && !p.className.includes('match-card') && !p.textContent.includes('League')) {
-                p = p.parentElement;
-                levels++;
-            }
-            if (p) {
-                const lines = p.innerText.trim().split('\n').map(t => t.trim()).filter(Boolean);
-                if (lines.length >= 7) {
-                    list.push(lines);
-                }
+    const cplkcFixtures = await page.evaluate(() => {
+        const rows = [];
+        const trs = document.querySelectorAll('table tr');
+        trs.forEach(tr => {
+            const cells = Array.from(tr.querySelectorAll('td')).map(td => td.textContent.trim().replace(/\s+/g, ' '));
+            if (cells.length >= 7 && /^\d+$/.test(cells[0])) {
+                rows.push({ cells });
             }
         });
-        return list;
+        return rows;
     });
-
-    const cplkcFixtures = [];
-    for (const lines of rawCplkcFixtures) {
-        const dateText = lines[0];
-        const matchType = lines[1] || 'League';
-        const team1 = lines[4];
-        const team2 = lines[6];
-        const venue = lines[3];
-        
-        const { dateStr, timeStr } = convertCplkcDate(dateText);
-        if (dateStr) {
-            cplkcFixtures.push({
-                cells: [
-                    "1",
-                    matchType,
-                    dateStr,
-                    timeStr,
-                    team1,
-                    team2,
-                    venue,
-                    "Scorecard"
-                ]
-            });
-        }
-    }
-    console.log(`Parsed ${cplkcFixtures.length} CPLKC Fixtures.`);
+    console.log(`Found ${cplkcFixtures.length} CPLKC Fixtures.`);
 
     // 3. Scrape MWCL Standings (Div B)
     console.log("Navigating to MWCL Standings...");
