@@ -1255,11 +1255,11 @@ function App() {
                         </tr>
                       </thead>
                       <tbody>
-                        {(activeStandingsLeague === 'MWCL' ? standingsData.mwcl : standingsData.cplkc).map((teamRow) => {
+                        {(activeStandingsLeague === 'MWCL' ? standingsData.mwcl : standingsData.cplkc).map((teamRow, idx) => {
                           const isWolves = teamRow.team.toLowerCase().includes('wolves');
                           return (
-                            <tr key={teamRow.rank} className={isWolves ? 'wolves-row-highlight' : ''}>
-                              <td className="rank-cell">{teamRow.rank}</td>
+                            <tr key={teamRow.rank || idx} className={isWolves ? 'wolves-row-highlight' : ''}>
+                              <td className="rank-cell">{idx + 1}</td>
                               <td className="team-cell" style={{ textAlign: 'left', fontWeight: isWolves ? '700' : 'normal' }}>
                                 {teamRow.team} {isWolves && <span className="wolves-self-badge">PACK</span>}
                               </td>
