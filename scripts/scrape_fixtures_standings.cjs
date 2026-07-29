@@ -50,9 +50,9 @@ async function scrape() {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
     });
 
-    // 1. Scrape MWCL Fixtures (League 68 is DIV B)
+    // 1. Scrape MWCL Fixtures (League 69 is T20, Team 687 is Wolves)
     console.log("Navigating to MWCL Fixtures...");
-    await page.goto('https://cricclubs.com/mwcl/fixtures.do?league=68&teamId=665&internalClubId=null&year=2026&clubId=93', { waitUntil: 'networkidle2', timeout: 90000 });
+    await page.goto('https://cricclubs.com/mwcl/fixtures.do?league=69&teamId=687&internalClubId=null&year=2026&clubId=93', { waitUntil: 'networkidle2', timeout: 90000 });
     console.log("Waiting 15 seconds for Cloudflare challenge to pass...");
     await new Promise(resolve => setTimeout(resolve, 15000));
     
@@ -69,9 +69,9 @@ async function scrape() {
     });
     console.log(`Found ${mwclFixtures.length} MWCL Fixtures.`);
 
-    // 2. Scrape CPLKC Schedule (Div B)
+    // 2. Scrape CPLKC Schedule (T18, Team 1155 is Wolves)
     console.log("Navigating to CPLKC Wolves Schedule page...");
-    await page.goto('https://cricclubs.com/cplkc/fixtures.do?teamId=1096&clubId=85', { waitUntil: 'networkidle2', timeout: 90000 });
+    await page.goto('https://cricclubs.com/cplkc/fixtures.do?teamId=1155&clubId=85', { waitUntil: 'networkidle2', timeout: 90000 });
     console.log("Waiting 15 seconds for Cloudflare challenge to pass...");
     await new Promise(resolve => setTimeout(resolve, 15000));
 
@@ -88,24 +88,19 @@ async function scrape() {
     });
     console.log(`Found ${cplkcFixtures.length} CPLKC Fixtures.`);
 
-    // 3. Scrape MWCL Standings (Div B)
+    // 3. Scrape MWCL Standings (Div A)
     console.log("Navigating to MWCL Standings...");
-    await page.goto('https://cricclubs.com/mwcl/pointsTable.do?clubId=93', { waitUntil: 'networkidle2', timeout: 90000 });
-    console.log("Waiting 15 seconds...");
-    await new Promise(resolve => setTimeout(resolve, 15000));
-
-    console.log("Clicking '2026 DIV B' tab...");
-    await page.evaluate(() => {
-        const tabs = Array.from(document.querySelectorAll('li'));
-        const target = tabs.find(li => li.textContent.trim() === '2026 DIV B');
-        if (target) target.click();
-    });
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await page.goto('https://cricclubs.com/mwcl/viewPointsTable.do?league=70&clubId=93', { waitUntil: 'networkidle2', timeout: 90000 });
+    console.log("Waiting 20 seconds for standings table to load...");
+    await new Promise(resolve => setTimeout(resolve, 20000));
 
     const mwclStandings = await page.evaluate(() => {
         const rows = [];
         const tables = Array.from(document.querySelectorAll('table'));
-        const standingsTable = tables.find(t => t.textContent.includes('Wolves'));
+        const standingsTable = tables.find(t => {
+            const text = t.textContent.toUpperCase();
+            return text.includes('WOLVES') && text.includes('PTS');
+        });
         if (standingsTable) {
             const trs = standingsTable.querySelectorAll('tr');
             trs.forEach(tr => {
@@ -121,27 +116,18 @@ async function scrape() {
     });
     console.log(`Found ${mwclStandings.length} MWCL Standings rows.`);
 
-    // 4. Scrape CPLKC Standings (Div B)
+    // 4. Scrape CPLKC Standings (Div A)
     console.log("Navigating to CPLKC points table...");
-    await page.goto('https://cricclubs.com/cplkc/pointsTable.do?clubId=85', { waitUntil: 'networkidle2', timeout: 90000 });
-    console.log("Waiting 15 seconds...");
-    await new Promise(resolve => setTimeout(resolve, 15000));
-
-    console.log("Clicking 'Div B' option programmatically...");
-    await page.evaluate(() => {
-        const items = Array.from(document.querySelectorAll('*'));
-        const target = items.find(el => el.textContent.trim() === 'Div B' && el.children.length === 0);
-        if (target) target.click();
-    });
-    console.log("Waiting 5 seconds for Division B table to load...");
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await page.goto('https://cricclubs.com/cplkc/viewPointsTable.do?league=104&clubId=85', { waitUntil: 'networkidle2', timeout: 90000 });
+    console.log("Waiting 20 seconds for standings table to load...");
+    await new Promise(resolve => setTimeout(resolve, 20000));
 
     const cplkcStandings = await page.evaluate(() => {
         const rows = [];
         const tables = Array.from(document.querySelectorAll('table'));
         const standingsTable = tables.find(t => {
-            const text = t.textContent;
-            return text.includes('Wolves') && text.includes('Pts') && (text.includes('Net RR') || text.includes('NRR'));
+            const text = t.textContent.toUpperCase();
+            return text.includes('WOLVES') && text.includes('PTS');
         });
         if (standingsTable) {
             const trs = standingsTable.querySelectorAll('tr');

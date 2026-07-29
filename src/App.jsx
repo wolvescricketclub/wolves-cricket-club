@@ -858,15 +858,15 @@ function App() {
             format: formatName,
             type,
             cricclubsUrl: leagueName === 'MWCL' 
-              ? "https://cricclubs.com/mwcl/fixtures.do?league=68&teamId=665&internalClubId=null&year=2026&clubId=93"
-              : "https://cricclubs.com/cplkc/fixtures.do?league=100&teamId=1096&internalClubId=null&year=2026&clubId=85"
+              ? "https://cricclubs.com/mwcl/fixtures.do?league=69&teamId=687&internalClubId=null&year=2026&clubId=93"
+              : "https://cricclubs.com/cplkc/fixtures.do?teamId=1155&clubId=85"
           });
         }
       });
     };
 
-    processLeague(scrapedData.mwcl, 'MWCL', 'MWCL T30 DIV B');
-    processLeague(scrapedData.cplkc, 'CPLKC', 'CPLKC T15 DIV B');
+    processLeague(scrapedData.mwcl, 'MWCL', 'MWCL T20 DIV A');
+    processLeague(scrapedData.cplkc, 'CPLKC', 'CPLKC T18 DIV A');
     
     return list;
   };
@@ -1229,13 +1229,13 @@ function App() {
                       onClick={() => setActiveStandingsLeague('MWCL')} 
                       className={`standings-tab-btn ${activeStandingsLeague === 'MWCL' ? 'active' : ''}`}
                     >
-                      MWCL T-30 DIV B
+                      MWCL T-20 DIV A
                     </button>
                     <button 
                       onClick={() => setActiveStandingsLeague('CPLKC')} 
                       className={`standings-tab-btn ${activeStandingsLeague === 'CPLKC' ? 'active' : ''}`}
                     >
-                      CPLKC T-15 DIV B
+                      CPLKC T-18 DIV A
                     </button>
                   </div>
 
@@ -1281,8 +1281,8 @@ function App() {
                   <div className="standings-card-footer">
                     <a 
                       href={activeStandingsLeague === 'MWCL' 
-                        ? "https://cricclubs.com/mwcl/viewPointsTable.do?league=68&year=2026&clubId=93"
-                        : "https://cricclubs.com/cplkc/points-table?leagueId=IXYnMzUvnNRSkoteIw23HA&year=2026&series=is9jyGx-OJwWEqjmUwfVsg&division=1CozdthIaj8FvszZU1SQZA&seriesName=2026+Spring+T15"
+                        ? "https://cricclubs.com/mwcl/viewPointsTable.do?league=70&year=2026&clubId=93"
+                        : "https://cricclubs.com/cplkc/viewPointsTable.do?league=104&year=2026&clubId=85"
                       }
                       target="_blank" 
                       rel="noopener noreferrer" 

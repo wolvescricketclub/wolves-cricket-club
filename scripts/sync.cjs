@@ -14,8 +14,8 @@ const BLACKLIST = [
 ];
 
 const LEAGUE_SOURCES = [
-    { name: "MWCL", url: "https://cricclubs.com/mwcl/viewTeam.do?teamId=665&clubId=93" },
-    { name: "CPLKC", url: "https://cricclubs.com/cplkc/viewTeam.do?teamId=1096&clubId=85" }
+    { name: "MWCL", url: "https://cricclubs.com/mwcl/viewTeam.do?teamId=687&clubId=93" },
+    { name: "CPLKC", url: "https://cricclubs.com/cplkc/viewTeam.do?teamId=1155&clubId=85" }
 ];
 
 function isBlacklisted(name) {
