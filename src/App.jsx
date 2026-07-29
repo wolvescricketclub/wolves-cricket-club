@@ -925,9 +925,9 @@ function App() {
           won: cells[3],
           lost: cells[4],
           nr: cells[5],
-          pts: cells[6],
-          winPct: cells[7],
-          nrr: cells[8]
+          pts: cells[7],
+          winPct: cells[8],
+          nrr: cells[9]
         };
       }).filter(Boolean);
     };
