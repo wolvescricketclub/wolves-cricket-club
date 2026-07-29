@@ -1251,8 +1251,7 @@ function App() {
                           <th>L</th>
                           <th>NR</th>
                           <th>PTS</th>
-                          <th className="hide-on-mobile">NRR</th>
-                          <th className="hide-on-mobile">WIN %</th>
+                          <th>NRR</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -1269,8 +1268,7 @@ function App() {
                               <td>{teamRow.lost}</td>
                               <td>{teamRow.nr}</td>
                               <td className="points-cell">{teamRow.pts}</td>
-                              <td className="nrr-cell hide-on-mobile">{teamRow.nrr}</td>
-                              <td className="win-pct-cell hide-on-mobile">{teamRow.winPct}</td>
+                              <td className="nrr-cell">{teamRow.nrr}</td>
                             </tr>
                           );
                         })}
