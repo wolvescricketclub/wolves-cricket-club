@@ -877,8 +877,7 @@ function App() {
     
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    // Reference date for demonstration fallback: if today is past 2026, lock reference date to June 20, 2026
-    const refDate = today > new Date(2026, 6, 30) ? new Date(2026, 5, 20) : today;
+    const refDate = today;
     
     const comingWeekEnd = new Date(refDate);
     comingWeekEnd.setDate(refDate.getDate() + 8);
