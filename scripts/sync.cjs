@@ -10,7 +10,12 @@ const BLACKLIST = [
     "vamshi krishna chanda",
     "vamsi krishna chanda",
     "vijay kumar burada",
-    "pavan reddy kasu"
+    "pavan reddy kasu",
+    "ashok reddy maddikar",
+    "ashok reddy maddikara",
+    "sudheer chintada",
+    "sudheer chinthada",
+    "ganesh munaga"
 ];
 
 const LEAGUE_SOURCES = [
