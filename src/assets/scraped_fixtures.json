@@ -4,20 +4,6 @@
       "cells": [
         "1",
         "League",
-        "08/16/2026",
-        "2:00 PM",
-        "Friends XI",
-        "Wolves",
-        "Minor Park",
-        "Green Hawks",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
         "08/22/2026",
         "2:00 PM",
         "Wolves",
@@ -30,7 +16,7 @@
     },
     {
       "cells": [
-        "3",
+        "2",
         "League",
         "08/23/2026",
         "9:00 AM",
@@ -44,7 +30,7 @@
     },
     {
       "cells": [
-        "4",
+        "3",
         "League",
         "08/29/2026",
         "9:30 AM",
@@ -58,7 +44,7 @@
     },
     {
       "cells": [
-        "5",
+        "4",
         "League",
         "08/30/2026",
         "9:00 AM",
@@ -74,6 +60,20 @@
       "cells": [
         "1",
         "League",
+        "08/16/2026",
+        "2:00 PM",
+        "Friends XI",
+        "Wolves",
+        "Minor Park",
+        "",
+        "",
+        "Scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "2",
+        "League",
         "08/08/2026",
         "2:00 PM",
         "Kc Avengers",
@@ -86,7 +86,7 @@
     },
     {
       "cells": [
-        "2",
+        "3",
         "League",
         "08/02/2026",
         "2:00 PM",
@@ -104,26 +104,6 @@
         "2026 MWCL T20",
         "2026 Div A",
         "League",
-        "08/16/2026",
-        "2:00 PM",
-        "Friends XI",
-        "Wolves",
-        "Minor Park",
-        "Green Hawks",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
         "08/22/2026",
         "2:00 PM",
         "Wolves",
@@ -140,7 +120,7 @@
     },
     {
       "cells": [
-        "3",
+        "2",
         "2026 MWCL T20",
         "2026 Div A",
         "League",
@@ -160,7 +140,7 @@
     },
     {
       "cells": [
-        "4",
+        "3",
         "2026 MWCL T20",
         "2026 Div A",
         "League",
@@ -180,7 +160,7 @@
     },
     {
       "cells": [
-        "5",
+        "4",
         "2026 MWCL T20",
         "2026 Div A",
         "League",
@@ -190,6 +170,26 @@
         "Wolves",
         "Minor Park",
         "Mean Machines",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "5",
+        "2026 MWCL T20",
+        "2026 Div A",
+        "League",
+        "08/16/2026",
+        "2:00 PM",
+        "Friends XI",
+        "Wolves",
+        "Minor Park",
+        "",
         "",
         "",
         "",
@@ -547,5 +547,5 @@
       ]
     }
   ],
-  "timestamp": "2026-08-10T14:17:58.636Z"
+  "timestamp": "2026-08-17T18:03:15.537Z"
 }
