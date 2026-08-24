@@ -26,9 +26,10 @@ function convertCplkcDate(dateText) {
 async function scrape() {
     console.log("Starting scraping of CricClubs fixtures and standings...");
     const isActions = !!process.env.GITHUB_ACTIONS;
+    const isHeadless = isActions || !!process.env.AUTO_SYNC;
     
     const launchOptions = {
-        headless: isActions ? true : false,
+        headless: isHeadless,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',

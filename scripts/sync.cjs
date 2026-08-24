@@ -44,10 +44,11 @@ function normalizeName(name) {
 
 async function run() {
     const isActions = !!process.env.GITHUB_ACTIONS;
-    console.log(`Starting Chrome (${isActions ? 'headless' : 'headful'} mode) for Wolves multi-league stats sync...`);
+    const isHeadless = isActions || !!process.env.AUTO_SYNC;
+    console.log(`Starting Chrome (${isHeadless ? 'headless' : 'headful'} mode) for Wolves multi-league stats sync...`);
     
     const launchOptions = {
-        headless: isActions ? true : false,
+        headless: isHeadless,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
