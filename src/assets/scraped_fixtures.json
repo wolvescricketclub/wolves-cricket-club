@@ -244,20 +244,6 @@
       "cells": [
         "1",
         "League",
-        "08/29/2026",
-        "3:45 PM",
-        "Pirates",
-        "Wolves",
-        "PCG",
-        "Midwest Warriors",
-        "Midwest Warriors",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
         "09/12/2026",
         "11:45 AM",
         "KC Royals",
@@ -265,6 +251,20 @@
         "OCG",
         "KC Khiladis",
         "KC Khiladis",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "2",
+        "League",
+        "09/15/2026",
+        "4:30 PM",
+        "Pirates",
+        "Wolves",
+        "PCG",
+        "Midwest Warriors",
+        "Midwest Warriors",
         ""
       ]
     },
@@ -372,13 +372,13 @@
         "2026 Summer T18",
         "Div A",
         "League",
-        "08/29/2026",
-        "3:45 PM",
-        "Pirates",
+        "09/12/2026",
+        "11:45 AM",
+        "KC Royals",
         "Wolves",
-        "PCG",
-        "Midwest Warriors",
-        "Midwest Warriors",
+        "OCG",
+        "KC Khiladis",
+        "KC Khiladis",
         "",
         "",
         "",
@@ -392,13 +392,13 @@
         "2026 Summer T18",
         "Div A",
         "League",
-        "09/12/2026",
-        "11:45 AM",
-        "KC Royals",
+        "09/15/2026",
+        "4:30 PM",
+        "Pirates",
         "Wolves",
-        "OCG",
-        "KC Khiladis",
-        "KC Khiladis",
+        "PCG",
+        "Midwest Warriors",
+        "Midwest Warriors",
         "",
         "",
         "",
@@ -547,5 +547,5 @@
       ]
     }
   ],
-  "timestamp": "2026-08-24T16:33:54.809Z"
+  "timestamp": "2026-08-26T15:37:17.978Z"
 }
