@@ -4,20 +4,6 @@
       "cells": [
         "1",
         "League",
-        "08/29/2026",
-        "9:30 AM",
-        "Wolves",
-        "Mystics",
-        "Auburndale Park",
-        "Killer X1",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
         "08/30/2026",
         "9:00 AM",
         "Green Hawks",
@@ -25,12 +11,26 @@
         "Minor Park",
         "Mean Machines",
         "",
-        ""
+        "Scorecard"
       ]
     },
     {
       "cells": [
-        "1",
+        "2",
+        "League",
+        "08/29/2026",
+        "9:30 AM",
+        "Wolves",
+        "Mystics",
+        "Auburndale Park",
+        "Killer X1",
+        "",
+        "Scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "3",
         "League",
         "08/23/2026",
         "9:00 AM",
@@ -44,7 +44,7 @@
     },
     {
       "cells": [
-        "2",
+        "4",
         "League",
         "08/22/2026",
         "2:00 PM",
@@ -58,7 +58,7 @@
     },
     {
       "cells": [
-        "3",
+        "5",
         "League",
         "08/16/2026",
         "2:00 PM",
@@ -72,7 +72,7 @@
     },
     {
       "cells": [
-        "4",
+        "6",
         "League",
         "08/08/2026",
         "2:00 PM",
@@ -86,7 +86,7 @@
     },
     {
       "cells": [
-        "5",
+        "7",
         "League",
         "08/02/2026",
         "2:00 PM",
@@ -104,12 +104,12 @@
         "2026 MWCL T20",
         "2026 Div A",
         "League",
-        "08/29/2026",
-        "9:30 AM",
+        "08/30/2026",
+        "9:00 AM",
+        "Green Hawks",
         "Wolves",
-        "Mystics",
-        "Auburndale Park",
-        "Killer X1",
+        "Minor Park",
+        "Mean Machines",
         "",
         "",
         "",
@@ -124,12 +124,12 @@
         "2026 MWCL T20",
         "2026 Div A",
         "League",
-        "08/30/2026",
-        "9:00 AM",
-        "Green Hawks",
+        "08/29/2026",
+        "9:30 AM",
         "Wolves",
-        "Minor Park",
-        "Mean Machines",
+        "Mystics",
+        "Auburndale Park",
+        "Killer X1",
         "",
         "",
         "",
@@ -547,5 +547,5 @@
       ]
     }
   ],
-  "timestamp": "2026-08-26T15:37:17.978Z"
+  "timestamp": "2026-08-31T16:08:12.830Z"
 }
