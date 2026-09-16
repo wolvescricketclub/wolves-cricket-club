@@ -244,20 +244,6 @@
       "cells": [
         "1",
         "League",
-        "09/14/2026",
-        "4:30 PM",
-        "Pirates",
-        "Wolves",
-        "PCG",
-        "Midwest Warriors",
-        "Midwest Warriors",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
         "09/19/2026",
         "11:45 AM",
         "Tuskers",
@@ -270,7 +256,7 @@
     },
     {
       "cells": [
-        "3",
+        "2",
         "League",
         "09/27/2026",
         "7:45 AM",
@@ -284,7 +270,7 @@
     },
     {
       "cells": [
-        "4",
+        "3",
         "League",
         "10/03/2026",
         "7:45 AM",
@@ -298,7 +284,7 @@
     },
     {
       "cells": [
-        "5",
+        "4",
         "League",
         "10/10/2026",
         "7:45 AM",
@@ -312,7 +298,7 @@
     },
     {
       "cells": [
-        "6",
+        "5",
         "League",
         "10/17/2026",
         "3:45 PM",
@@ -328,6 +314,20 @@
       "cells": [
         "1",
         "League",
+        "09/14/2026",
+        "4:30 PM",
+        "Pirates",
+        "Wolves",
+        "PCG",
+        "Midwest Warriors",
+        "Midwest Warriors",
+        "Scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "2",
+        "League",
         "09/12/2026",
         "11:45 AM",
         "KC Royals",
@@ -340,7 +340,7 @@
     },
     {
       "cells": [
-        "2",
+        "3",
         "League",
         "08/08/2026",
         "7:45 AM",
@@ -354,7 +354,7 @@
     },
     {
       "cells": [
-        "3",
+        "4",
         "League",
         "08/01/2026",
         "7:45 AM",
@@ -372,26 +372,6 @@
         "2026 Summer T18",
         "Div A",
         "League",
-        "09/14/2026",
-        "4:30 PM",
-        "Pirates",
-        "Wolves",
-        "PCG",
-        "Midwest Warriors",
-        "Midwest Warriors",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "2026 Summer T18",
-        "Div A",
-        "League",
         "09/19/2026",
         "11:45 AM",
         "Tuskers",
@@ -408,7 +388,7 @@
     },
     {
       "cells": [
-        "3",
+        "2",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -428,7 +408,7 @@
     },
     {
       "cells": [
-        "4",
+        "3",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -448,7 +428,7 @@
     },
     {
       "cells": [
-        "5",
+        "4",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -468,7 +448,7 @@
     },
     {
       "cells": [
-        "6",
+        "5",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -479,6 +459,26 @@
         "OCG",
         "Punjab XI",
         "Punjab XI",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "6",
+        "2026 Summer T18",
+        "Div A",
+        "League",
+        "09/14/2026",
+        "4:30 PM",
+        "Pirates",
+        "Wolves",
+        "PCG",
+        "Midwest Warriors",
+        "Midwest Warriors",
         "",
         "",
         "",
@@ -547,5 +547,5 @@
       ]
     }
   ],
-  "timestamp": "2026-09-14T14:01:42.837Z"
+  "timestamp": "2026-09-16T16:51:55.841Z"
 }
