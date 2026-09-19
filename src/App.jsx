@@ -412,6 +412,7 @@ function App() {
   const [activeSponsor, setActiveSponsor] = useState(null);
   const [selectedRoadmapYear, setSelectedRoadmapYear] = useState('2026');
   const [activeMilestone, setActiveMilestone] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   // Normalize data, resolve truncated spellings, roles, and keepers by exact playerId mapping
   const players = useMemo(() => {
@@ -487,6 +488,7 @@ function App() {
       if (e.key === 'Escape') {
         setActiveMilestone(null);
         setActivePlayer(null);
+        setSelectedPhoto(null);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -937,8 +939,39 @@ function App() {
     };
   }, []);
 
-  // Photos Gallery list (Temporarily emptied for real photos later)
-  const photosList = useMemo(() => [], []);
+  // Photos Gallery list imported from roadmap milestones
+  const photosList = useMemo(() => [
+    {
+      src: '/cplkc_2017_champions.jpg',
+      caption: '2017 CPLKC Spring Champions',
+      description: 'Wolves captured the CPLKC Spring League Championship after defeating the Blazing Falcons in a thrilling final.'
+    },
+    {
+      src: '/mwcl_2018_champions.jpg',
+      caption: '2018 T20 Division B Champions',
+      description: 'Wolves lifted the T20 Division B Championship after a stellar victory against the Kansas Kings.'
+    },
+    {
+      src: '/summer_2022_champions.jpg',
+      caption: '2022 Summer Div B Champions',
+      description: 'Champions! Wolves clinched the Summer League Division B Championship in a thrilling final against Pehlwan XI.'
+    },
+    {
+      src: '/mwcl_2025_champions.jpg',
+      caption: '2025 MWCL T20 Champions',
+      description: 'Wolves captured the MWCL T20 Division B Championship with a spectacular win over the Pirates.'
+    },
+    {
+      src: '/mwcl_2026_semis.jpg',
+      caption: '2026 MWCL T-30 Semi-Finalists',
+      description: 'In the MWCL T-30, Wolves finished the season by losing to Brothers XI in the semis.'
+    },
+    {
+      src: '/cplkc_2026_semis.jpg',
+      caption: '2026 Spring CPLKC T-15 Semi-Finalists',
+      description: 'Spring CPLKC T-15 wolves finished the season losing in semis against Killer XI.'
+    }
+  ], []);
 
   // Videos Highlight list (Temporarily emptied for real videos later)
   const videosList = useMemo(() => [], []);
@@ -1455,6 +1488,24 @@ function App() {
               x: 58, 
               y: 4, 
               num: 10 
+            },
+            { 
+              year: '2026', 
+              title: 'MWCL T-30 SEMI-FINALISTS', 
+              text: 'In the MWCL T-30, Wolves finished the season by losing to Brothers XI in the semis.', 
+              photo: '/mwcl_2026_semis.jpg',
+              x: 50, 
+              y: 2, 
+              num: 11 
+            },
+            { 
+              year: '2026', 
+              title: 'SPRING CPLKC T-15 SEMI-FINALISTS', 
+              text: 'Spring CPLKC T-15 wolves finished the season losing in semis against Killer XI.', 
+              photo: '/cplkc_2026_semis.jpg',
+              x: 42, 
+              y: 1, 
+              num: 12 
             }
           ];
 
@@ -1467,7 +1518,7 @@ function App() {
 
               <div className="simple-timeline-container">
                 {mapMilestones.map((m) => (
-                  <div key={m.year} className="simple-timeline-item">
+                  <div key={`${m.year}-${m.num || m.title}`} className="simple-timeline-item">
                     <div className="simple-timeline-badge">
                       <span className="timeline-badge-year">{m.year}</span>
                     </div>
@@ -1475,7 +1526,12 @@ function App() {
                       <h3 className="timeline-card-title">{m.title}</h3>
                       <p className="timeline-card-text">{m.text}</p>
                       {m.photo && (
-                        <div className="timeline-card-photo-wrapper">
+                        <div 
+                          className="timeline-card-photo-wrapper"
+                          onClick={() => setSelectedPhoto({ src: m.photo, caption: m.title, description: m.text })}
+                          style={{ cursor: 'pointer' }}
+                          title="Click to view photo"
+                        >
                           <img src={m.photo} alt={m.title} className="timeline-card-photo" />
                         </div>
                       )}
@@ -1652,7 +1708,12 @@ function App() {
               ) : (
                 <div className="photos-gallery-grid">
                   {photosList.map((photo, index) => (
-                    <div key={index} className="gallery-photo-card">
+                    <div 
+                      key={index} 
+                      className="gallery-photo-card"
+                      onClick={() => setSelectedPhoto(photo)}
+                      title="Click to view photo"
+                    >
                       <img src={photo.src} alt={photo.caption} className="gallery-photo-img" />
                       <div className="gallery-photo-overlay">
                         <span className="gallery-photo-caption">{photo.caption}</span>
@@ -1955,6 +2016,42 @@ function App() {
 
             </div>
 
+          </div>
+        </div>
+      )}
+
+      {/* 8. GALLERY & ROADMAP PHOTO LIGHTBOX MODAL */}
+      {selectedPhoto && (
+        <div className="modal-backdrop" onClick={() => setSelectedPhoto(null)} style={{ zIndex: 1200 }}>
+          <div 
+            className="modal-content-container modal-animate-in" 
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '850px', padding: '24px', display: 'flex', flexDirection: 'column' }}
+          >
+            <button 
+              onClick={() => setSelectedPhoto(null)}
+              className="modal-absolute-close-btn"
+              aria-label="Close photo"
+            >
+              <X size={20} />
+            </button>
+            <div style={{ width: '100%', borderRadius: '10px', overflow: 'hidden', backgroundColor: 'rgba(0,0,0,0.5)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+              <img 
+                src={selectedPhoto.src} 
+                alt={selectedPhoto.caption} 
+                style={{ width: '100%', maxHeight: '72vh', objectFit: 'contain', display: 'block', borderRadius: '8px' }} 
+              />
+            </div>
+            <div style={{ padding: '0 4px' }}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--accent-orange)', fontSize: '1.25rem', margin: '0 0 6px 0', textTransform: 'uppercase', letterSpacing: '0.02em' }}>
+                {selectedPhoto.caption}
+              </h3>
+              {selectedPhoto.description && (
+                <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: '1.5' }}>
+                  {selectedPhoto.description}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       )}
