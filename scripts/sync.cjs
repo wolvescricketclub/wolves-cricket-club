@@ -15,7 +15,18 @@ const BLACKLIST = [
     "ashok reddy maddikara",
     "sudheer chintada",
     "sudheer chinthada",
-    "ganesh munaga"
+    "ganesh munaga",
+    "dhruva v",
+    "dhruva",
+    "karthik kandi",
+    "vamsi looney"
+];
+
+const BLACKLIST_IDS = [
+    "7115411", // Mourya Chiluka (duplicate profile without picture from MWCL)
+    "2874787", // Dhruva V
+    "6758676", // Karthik Kandi
+    "3411920"  // Vamsi Looney
 ];
 
 const LEAGUE_SOURCES = [
@@ -23,7 +34,10 @@ const LEAGUE_SOURCES = [
     { name: "CPLKC", url: "https://cricclubs.com/cplkc/viewTeam.do?teamId=1155&clubId=85" }
 ];
 
-function isBlacklisted(name) {
+function isBlacklisted(name, playerId) {
+    if (playerId && BLACKLIST_IDS.includes(String(playerId))) {
+        return true;
+    }
     const norm = name.toLowerCase().replace(/[^a-z0-9]/g, '').trim();
     for (const b of BLACKLIST) {
         const bNorm = b.toLowerCase().replace(/[^a-z0-9]/g, '').trim();
@@ -122,8 +136,8 @@ async function run() {
     // Filter out blacklisted players
     console.log(`\nFiltering out blacklisted players...`);
     const filteredBasicPlayers = allBasicPlayers.filter(p => {
-        if (isBlacklisted(p.name)) {
-            console.log(`❌ Excluding blacklisted player: "${p.name}" (${p.league})`);
+        if (isBlacklisted(p.name, p.playerId)) {
+            console.log(`❌ Excluding blacklisted player: "${p.name}" (${p.league}) [${p.playerId}]`);
             return false;
         }
         return true;
@@ -417,7 +431,7 @@ async function run() {
     const finalIds = new Set(finalRoster.map(p => String(p.playerId)));
     for (const p of existingRoster) {
         if (!finalIds.has(String(p.playerId))) {
-            if (isBlacklisted(p.name)) {
+            if (isBlacklisted(p.name, p.playerId)) {
                 console.log(`❌ Excluding blacklisted existing player: "${p.name}" (${p.playerId})`);
                 continue;
             }
