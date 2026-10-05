@@ -244,34 +244,6 @@
       "cells": [
         "1",
         "League",
-        "09/27/2026",
-        "7:45 AM",
-        "Killer XI",
-        "Wolves",
-        "OCG",
-        "Blue Titans",
-        "Blue Titans",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
-        "10/03/2026",
-        "7:45 AM",
-        "KC Raptors",
-        "Wolves",
-        "OCG",
-        "KC Blues",
-        "KC Blues",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "League",
         "10/10/2026",
         "7:45 AM",
         "Lakes XI",
@@ -284,7 +256,7 @@
     },
     {
       "cells": [
-        "4",
+        "2",
         "League",
         "10/17/2026",
         "11:45 AM",
@@ -300,19 +272,47 @@
       "cells": [
         "1",
         "League",
-        "09/19/2026",
-        "11:45 AM",
-        "Tuskers",
+        "10/03/2026",
+        "7:45 AM",
+        "KC Raptors",
         "Wolves",
         "OCG",
-        "Bengal Warriors",
-        "Bengal Warriors",
-        ""
+        "KC Blues",
+        "KC Blues",
+        "Scorecard"
       ]
     },
     {
       "cells": [
         "2",
+        "League",
+        "09/29/2026",
+        "3:30 PM",
+        "Tuskers",
+        "Wolves",
+        "OCG",
+        "Bengal Warriors",
+        "Bengal Warriors",
+        "Scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "3",
+        "League",
+        "09/27/2026",
+        "7:45 AM",
+        "Killer XI",
+        "Wolves",
+        "OCG",
+        "Blue Titans",
+        "Blue Titans",
+        "Scorecard"
+      ]
+    },
+    {
+      "cells": [
+        "4",
         "League",
         "09/14/2026",
         "4:30 PM",
@@ -326,7 +326,7 @@
     },
     {
       "cells": [
-        "3",
+        "5",
         "League",
         "09/12/2026",
         "11:45 AM",
@@ -340,7 +340,7 @@
     },
     {
       "cells": [
-        "4",
+        "6",
         "League",
         "08/08/2026",
         "7:45 AM",
@@ -354,7 +354,7 @@
     },
     {
       "cells": [
-        "5",
+        "7",
         "League",
         "08/01/2026",
         "7:45 AM",
@@ -372,46 +372,6 @@
         "2026 Summer T18",
         "Div A",
         "League",
-        "09/27/2026",
-        "7:45 AM",
-        "Killer XI",
-        "Wolves",
-        "OCG",
-        "Blue Titans",
-        "Blue Titans",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "2026 Summer T18",
-        "Div A",
-        "League",
-        "10/03/2026",
-        "7:45 AM",
-        "KC Raptors",
-        "Wolves",
-        "OCG",
-        "KC Blues",
-        "KC Blues",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "2026 Summer T18",
-        "Div A",
-        "League",
         "10/10/2026",
         "7:45 AM",
         "Lakes XI",
@@ -428,7 +388,7 @@
     },
     {
       "cells": [
-        "4",
+        "2",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -448,17 +408,57 @@
     },
     {
       "cells": [
-        "5",
+        "3",
         "2026 Summer T18",
         "Div A",
         "League",
-        "09/19/2026",
-        "11:45 AM",
+        "10/03/2026",
+        "7:45 AM",
+        "KC Raptors",
+        "Wolves",
+        "OCG",
+        "KC Blues",
+        "KC Blues",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "4",
+        "2026 Summer T18",
+        "Div A",
+        "League",
+        "09/29/2026",
+        "3:30 PM",
         "Tuskers",
         "Wolves",
         "OCG",
         "Bengal Warriors",
         "Bengal Warriors",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "5",
+        "2026 Summer T18",
+        "Div A",
+        "League",
+        "09/27/2026",
+        "7:45 AM",
+        "Killer XI",
+        "Wolves",
+        "OCG",
+        "Blue Titans",
+        "Blue Titans",
         "",
         "",
         "",
@@ -547,5 +547,5 @@
       ]
     }
   ],
-  "timestamp": "2026-09-21T14:04:32.675Z"
+  "timestamp": "2026-10-05T15:38:38.826Z"
 }
