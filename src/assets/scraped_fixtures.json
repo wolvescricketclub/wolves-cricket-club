@@ -1,245 +1,20 @@
 {
-  "mwcl": [
-    {
-      "cells": [
-        "1",
-        "League",
-        "08/30/2026",
-        "9:00 AM",
-        "Green Hawks",
-        "Wolves",
-        "Minor Park",
-        "Mean Machines",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "League",
-        "08/29/2026",
-        "9:30 AM",
-        "Wolves",
-        "Mystics",
-        "Auburndale Park",
-        "Killer X1",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "League",
-        "08/23/2026",
-        "9:00 AM",
-        "Raptors",
-        "Wolves",
-        "Minor Park",
-        "Riteesh Ankathi(Killer X1)",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "4",
-        "League",
-        "08/22/2026",
-        "2:00 PM",
-        "Wolves",
-        "Lakes XI",
-        "Auburndale Park",
-        "Raptors",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "5",
-        "League",
-        "08/16/2026",
-        "2:00 PM",
-        "Friends XI",
-        "Wolves",
-        "Minor Park",
-        "",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "6",
-        "League",
-        "08/08/2026",
-        "2:00 PM",
-        "Kc Avengers",
-        "Wolves",
-        "Minor Park",
-        "",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "7",
-        "League",
-        "08/02/2026",
-        "2:00 PM",
-        "Brothers XI",
-        "Wolves",
-        "Liberty Ground",
-        "Green Hawks",
-        "",
-        "Scorecard"
-      ]
-    },
-    {
-      "cells": [
-        "1",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/30/2026",
-        "9:00 AM",
-        "Green Hawks",
-        "Wolves",
-        "Minor Park",
-        "Mean Machines",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "2",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/29/2026",
-        "9:30 AM",
-        "Wolves",
-        "Mystics",
-        "Auburndale Park",
-        "Killer X1",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "3",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/23/2026",
-        "9:00 AM",
-        "Raptors",
-        "Wolves",
-        "Minor Park",
-        "Killer X1",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "4",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/22/2026",
-        "2:00 PM",
-        "Wolves",
-        "Lakes XI",
-        "Auburndale Park",
-        "Raptors",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "5",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/16/2026",
-        "2:00 PM",
-        "Friends XI",
-        "Wolves",
-        "Minor Park",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "6",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/08/2026",
-        "2:00 PM",
-        "Kc Avengers",
-        "Wolves",
-        "Minor Park",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "7",
-        "2026 MWCL T20",
-        "2026 Div A",
-        "League",
-        "08/02/2026",
-        "2:00 PM",
-        "Brothers XI",
-        "Wolves",
-        "Liberty Ground",
-        "Green Hawks",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ]
-    }
-  ],
+  "mwcl": [],
   "cplkc": [
+    {
+      "cells": [
+        "1",
+        "League",
+        "10/17/2026",
+        "11:45 AM",
+        "KC Rockers",
+        "Wolves",
+        "OCG",
+        "Punjab XI",
+        "Punjab XI",
+        ""
+      ]
+    },
     {
       "cells": [
         "1",
@@ -258,20 +33,6 @@
       "cells": [
         "2",
         "League",
-        "10/17/2026",
-        "11:45 AM",
-        "KC Rockers",
-        "Wolves",
-        "OCG",
-        "Punjab XI",
-        "Punjab XI",
-        ""
-      ]
-    },
-    {
-      "cells": [
-        "1",
-        "League",
         "10/03/2026",
         "7:45 AM",
         "KC Raptors",
@@ -284,7 +45,7 @@
     },
     {
       "cells": [
-        "2",
+        "3",
         "League",
         "09/29/2026",
         "3:30 PM",
@@ -298,7 +59,7 @@
     },
     {
       "cells": [
-        "3",
+        "4",
         "League",
         "09/27/2026",
         "7:45 AM",
@@ -312,7 +73,7 @@
     },
     {
       "cells": [
-        "4",
+        "5",
         "League",
         "09/14/2026",
         "4:30 PM",
@@ -326,7 +87,7 @@
     },
     {
       "cells": [
-        "5",
+        "6",
         "League",
         "09/12/2026",
         "11:45 AM",
@@ -340,7 +101,7 @@
     },
     {
       "cells": [
-        "6",
+        "7",
         "League",
         "08/08/2026",
         "7:45 AM",
@@ -354,7 +115,7 @@
     },
     {
       "cells": [
-        "7",
+        "8",
         "League",
         "08/01/2026",
         "7:45 AM",
@@ -372,13 +133,13 @@
         "2026 Summer T18",
         "Div A",
         "League",
-        "10/10/2026",
-        "7:45 AM",
-        "Lakes XI",
+        "10/17/2026",
+        "11:45 AM",
+        "KC Rockers",
         "Wolves",
-        "PCG",
-        "Sixers",
-        "Sixers",
+        "OCG",
+        "Punjab XI",
+        "Punjab XI",
         "",
         "",
         "",
@@ -392,13 +153,13 @@
         "2026 Summer T18",
         "Div A",
         "League",
-        "10/17/2026",
-        "11:45 AM",
-        "KC Rockers",
+        "10/10/2026",
+        "7:45 AM",
+        "Lakes XI",
         "Wolves",
-        "OCG",
-        "Punjab XI",
-        "Punjab XI",
+        "PCG",
+        "Sixers",
+        "Sixers",
         "",
         "",
         "",
@@ -547,5 +308,5 @@
       ]
     }
   ],
-  "timestamp": "2026-10-10T15:24:01.065Z"
+  "timestamp": "2026-10-12T16:37:29.552Z"
 }
