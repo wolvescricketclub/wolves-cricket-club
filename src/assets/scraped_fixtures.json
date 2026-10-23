@@ -243,6 +243,20 @@
     {
       "cells": [
         "1",
+        "Semi Final",
+        "10/25/2026",
+        "10:00 AM",
+        "Dominators",
+        "Wolves",
+        "OCG",
+        "Rising Stars",
+        "Blue Titans",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "1",
         "League",
         "10/17/2026",
         "11:45 AM",
@@ -371,6 +385,26 @@
         "1",
         "2026 Summer T18",
         "Div A",
+        "Semi Final",
+        "10/25/2026",
+        "10:00 AM",
+        "Dominators",
+        "Wolves",
+        "OCG",
+        "Rising Stars",
+        "Blue Titans",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "cells": [
+        "2",
+        "2026 Summer T18",
+        "Div A",
         "League",
         "10/17/2026",
         "11:45 AM",
@@ -388,7 +422,7 @@
     },
     {
       "cells": [
-        "2",
+        "3",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -408,7 +442,7 @@
     },
     {
       "cells": [
-        "3",
+        "4",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -428,7 +462,7 @@
     },
     {
       "cells": [
-        "4",
+        "5",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -448,7 +482,7 @@
     },
     {
       "cells": [
-        "5",
+        "6",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -468,7 +502,7 @@
     },
     {
       "cells": [
-        "6",
+        "7",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -488,7 +522,7 @@
     },
     {
       "cells": [
-        "7",
+        "8",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -508,7 +542,7 @@
     },
     {
       "cells": [
-        "8",
+        "9",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -528,7 +562,7 @@
     },
     {
       "cells": [
-        "9",
+        "10",
         "2026 Summer T18",
         "Div A",
         "League",
@@ -547,5 +581,5 @@
       ]
     }
   ],
-  "timestamp": "2026-10-20T15:16:45.068Z"
+  "timestamp": "2026-10-23T16:49:11.231Z"
 }
