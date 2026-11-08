@@ -745,6 +745,7 @@ function App() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [activeStandingsLeague, setActiveStandingsLeague] = useState('MWCL');
   const [gallerySubTab, setGallerySubTab] = useState('photos');
+  const [showStandingsTable, setShowStandingsTable] = useState(false);
 
   const handleNavLinkClick = (tabId) => {
     setActiveTab(tabId);
@@ -1196,7 +1197,7 @@ function App() {
                 {upcomingMatches.length === 0 ? (
                   <div className="no-matches-card glass-card">
                     <Calendar size={24} style={{ color: 'var(--text-muted)', marginBottom: '8px' }} />
-                    <p style={{ margin: 0, color: 'var(--text-muted)' }}>No matches scheduled for this week.</p>
+                    <p style={{ margin: 0, color: 'var(--text-muted)' }}>No matches scheduled. The 2026 tournament season has concluded.</p>
                   </div>
                 ) : (
                   <div className="battles-schedule-list">
@@ -1251,62 +1252,88 @@ function App() {
               <div className="standings-column">
                 <div className="section-title-wrap-left">
                   <h2 className="tab-section-heading">LEAGUE STANDINGS</h2>
-                  <p className="tab-section-subtitle">Real-time points table and standings in our ongoing leagues.</p>
+                  <p className="tab-section-subtitle">2026 tournament season has concluded. Standings are archived for the off-season.</p>
                 </div>
 
                 <div className="standings-card glass-card">
-                  {/* Standings tabs selector */}
-                  <div className="standings-tabs">
-                    <button 
-                      onClick={() => setActiveStandingsLeague('MWCL')} 
-                      className={`standings-tab-btn ${activeStandingsLeague === 'MWCL' ? 'active' : ''}`}
-                    >
-                      MWCL T-20 DIV A
-                    </button>
-                    <button 
-                      onClick={() => setActiveStandingsLeague('CPLKC')} 
-                      className={`standings-tab-btn ${activeStandingsLeague === 'CPLKC' ? 'active' : ''}`}
-                    >
-                      CPLKC T-18 DIV A
-                    </button>
+                  {/* Off-season state banner */}
+                  <div className="season-concluded-card" style={{ textAlign: 'center', padding: '24px 16px' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255, 107, 0, 0.1)', color: 'var(--accent-orange)', marginBottom: '12px' }}>
+                      <Trophy size={24} />
+                    </div>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px', letterSpacing: '0.05em' }}>
+                      2026 SEASON CONCLUDED
+                    </h3>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', maxWidth: '380px', margin: '0 auto 16px' }}>
+                      All league fixtures and playoff campaigns for the 2026 season have wrapped up. Standings and points tables are paused for the off-season.
+                    </p>
+                    <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                      <button
+                        onClick={() => setShowStandingsTable(!showStandingsTable)}
+                        className="btn-secondary"
+                        style={{ fontSize: '0.78rem', padding: '6px 14px', cursor: 'pointer' }}
+                      >
+                        {showStandingsTable ? 'Hide Archived 2026 Standings' : 'View Archived 2026 Standings'}
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Standings table */}
-                  <div className="standings-table-container">
-                    <table className="standings-table">
-                      <thead>
-                        <tr>
-                          <th style={{ width: '40px' }}>#</th>
-                          <th style={{ textAlign: 'left' }}>Team</th>
-                          <th>P</th>
-                          <th>W</th>
-                          <th>L</th>
-                          <th>NR</th>
-                          <th>PTS</th>
-                          <th>NRR</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {(activeStandingsLeague === 'MWCL' ? standingsData.mwcl : standingsData.cplkc).map((teamRow, idx) => {
-                          const isWolves = teamRow.team.toLowerCase().includes('wolves');
-                          return (
-                            <tr key={teamRow.rank || idx} className={isWolves ? 'wolves-row-highlight' : ''}>
-                              <td className="rank-cell">{idx + 1}</td>
-                              <td className="team-cell" style={{ textAlign: 'left', fontWeight: isWolves ? '700' : 'normal' }}>
-                                {teamRow.team} {isWolves && <span className="wolves-self-badge">PACK</span>}
-                              </td>
-                              <td>{teamRow.played}</td>
-                              <td>{teamRow.won}</td>
-                              <td>{teamRow.lost}</td>
-                              <td>{teamRow.nr}</td>
-                              <td className="points-cell">{teamRow.pts}</td>
-                              <td className="nrr-cell">{teamRow.nrr}</td>
+                  {showStandingsTable && (
+                    <>
+                      {/* Standings tabs selector */}
+                      <div className="standings-tabs" style={{ marginTop: '16px' }}>
+                        <button 
+                          onClick={() => setActiveStandingsLeague('MWCL')} 
+                          className={`standings-tab-btn ${activeStandingsLeague === 'MWCL' ? 'active' : ''}`}
+                        >
+                          MWCL T-20 DIV A
+                        </button>
+                        <button 
+                          onClick={() => setActiveStandingsLeague('CPLKC')} 
+                          className={`standings-tab-btn ${activeStandingsLeague === 'CPLKC' ? 'active' : ''}`}
+                        >
+                          CPLKC T-18 DIV A
+                        </button>
+                      </div>
+
+                      {/* Standings table */}
+                      <div className="standings-table-container">
+                        <table className="standings-table">
+                          <thead>
+                            <tr>
+                              <th style={{ width: '40px' }}>#</th>
+                              <th style={{ textAlign: 'left' }}>Team</th>
+                              <th>P</th>
+                              <th>W</th>
+                              <th>L</th>
+                              <th>NR</th>
+                              <th>PTS</th>
+                              <th>NRR</th>
                             </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
+                          </thead>
+                          <tbody>
+                            {(activeStandingsLeague === 'MWCL' ? standingsData.mwcl : standingsData.cplkc).map((teamRow, idx) => {
+                              const isWolves = teamRow.team.toLowerCase().includes('wolves');
+                              return (
+                                <tr key={teamRow.rank || idx} className={isWolves ? 'wolves-row-highlight' : ''}>
+                                  <td className="rank-cell">{idx + 1}</td>
+                                  <td className="team-cell" style={{ textAlign: 'left', fontWeight: isWolves ? '700' : 'normal' }}>
+                                    {teamRow.team} {isWolves && <span className="wolves-self-badge">PACK</span>}
+                                  </td>
+                                  <td>{teamRow.played}</td>
+                                  <td>{teamRow.won}</td>
+                                  <td>{teamRow.lost}</td>
+                                  <td>{teamRow.nr}</td>
+                                  <td className="points-cell">{teamRow.pts}</td>
+                                  <td className="nrr-cell">{teamRow.nrr}</td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </>
+                  )}
 
                   <div className="standings-card-footer">
                     <a 
@@ -1318,7 +1345,7 @@ function App() {
                       rel="noopener noreferrer" 
                       className="standings-external-link"
                     >
-                      View Full Table on CricClubs <ExternalLink size={12} style={{ marginLeft: '4px' }} />
+                      View CricClubs Official Table <ExternalLink size={12} style={{ marginLeft: '4px' }} />
                     </a>
                   </div>
 
@@ -1506,6 +1533,14 @@ function App() {
               x: 42, 
               y: 1, 
               num: 12 
+            },
+            { 
+              year: '2026', 
+              title: 'FALL CPLKC T-18 SEMI-FINALISTS', 
+              text: 'Wolves lost to Dominators in Semis of T-18 fall 2026 season.', 
+              x: 50, 
+              y: 0, 
+              num: 13 
             }
           ];
 
